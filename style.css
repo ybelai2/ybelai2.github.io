@@ -51,6 +51,9 @@ ul{
 li{
     margin:8px 0;
 }
-.section-3  h2{
-    color:#f5d776;
+.section-3 a {
+    color: #ffffff;
+}
+.section-3 a:hover {
+    color: #4fc3f7; 
 }
