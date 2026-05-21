@@ -1,99 +1,695 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Yohannes Belai</title>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yohannes Belai — Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- Font icons -->
-<link rel="stylesheet"
-href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+  :root {
+    --bg: #0C0E12;
+    --surface: #13161C;
+    --surface2: #1A1E27;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #E8EAF0;
+    --muted: #6B7280;
+    --accent: #4EFFA0;
+    --accent2: #38BDF8;
+    --accent3: #F472B6;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Outfit', system-ui, sans-serif;
+    --mono: 'DM Mono', 'Courier New', monospace;
+  }
 
-<!-- Your CSS file -->
-<link rel="stylesheet" href="style.css">
+  html { scroll-behavior: smooth; }
 
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: #000; }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(12,14,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .hero-bio {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 460px;
+  }
+
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0C0E12;
+  }
+  .btn-primary:hover { background: #6DFFB3; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border2);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Hero right: stat card */
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+  }
+  .card-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .tech-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .tag.accent { background: rgba(78,255,160,0.08); border-color: rgba(78,255,160,0.25); color: var(--accent); }
+  .tag.blue   { background: rgba(56,189,248,0.08); border-color: rgba(56,189,248,0.25); color: var(--accent2); }
+  .tag.pink   { background: rgba(244,114,182,0.08); border-color: rgba(244,114,182,0.25); color: var(--accent3); }
+
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .stat { text-align: center; }
+  .stat-num { font-family: var(--serif); font-size: 2rem; color: var(--text); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* ── Section base ── */
+  section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 3rem; }
+  .section-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400; color: var(--text); line-height: 1.15;
+  }
+  .divider { width: 100%; height: 1px; background: var(--border); }
+
+  /* ── Experience ── */
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 3rem; padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-meta { }
+  .exp-date {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--muted); letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .exp-company { font-size: 13px; color: var(--accent); font-weight: 500; }
+  .exp-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 1rem; }
+  .exp-desc { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 14px; color: var(--muted); line-height: 1.7;
+    padding-left: 1.2rem; position: relative; margin-bottom: 0.4rem;
+  }
+  .exp-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 12px;
+  }
+
+  /* ── Projects ── */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;
+  }
+
+  .project-badge {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 3px;
+    display: inline-block; margin-bottom: 1rem;
+  }
+  .badge-ai   { background: rgba(78,255,160,0.1); color: var(--accent); }
+  .badge-full { background: rgba(56,189,248,0.1); color: var(--accent2); }
+  .badge-work { background: rgba(244,114,182,0.1); color: var(--accent3); }
+
+  .project-title { font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 0.75rem; }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; flex: 1; }
+
+  .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .stack-tag {
+    font-family: var(--mono); font-size: 10px;
+    padding: 3px 8px; border-radius: 3px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .project-links { display: flex; gap: 1rem; margin-top: auto; }
+  .project-link {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--muted); text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--accent); }
+  .project-link svg { width: 14px; height: 14px; }
+
+  /* ── Skills ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .skill-group {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .skill-group-title {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 1rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  }
+  .skill-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .skill-item { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+  /* ── Education ── */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem;
+  }
+  .edu-school { font-size: 17px; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+  .edu-degree { font-size: 14px; color: var(--accent); margin-bottom: 0.25rem; }
+  .edu-date   { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+  /* ── Contact ── */
+  .contact-wrap {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .contact-wrap::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .contact-title { font-family: var(--serif); font-size: 2.5rem; margin-bottom: 1rem; }
+  .contact-sub { font-size: 15px; color: var(--muted); margin-bottom: 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 13px;
+    color: var(--muted); text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--border); border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center; padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .contact-wrap { padding: 2.5rem 1.5rem; }
+  }
+</style>
 </head>
-
 <body>
 
-<div class="grid-2">
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">yb.dev</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="resume.pdf" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 12px;">Resume ↓</a>
+</nav>
 
-<!-- LEFT SIDEBAR -->
-<div class="section-1">
+<!-- HERO -->
+<div style="max-width: 1100px; margin: 0 auto;">
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow fade-up">Available for work</div>
+      <h1 class="fade-up delay-1">Yohannes<br><em>Belai</em></h1>
+      <p class="hero-bio fade-up delay-2">
+        Full-stack developer and CS student at Towson University. I build AI-powered web applications
+        with React, Spring Boot, and cloud infrastructure — from authentication flows to LLM integrations.
+      </p>
+      <div class="hero-cta fade-up delay-3">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
 
-<h2>Yohannes Belai</h2>
-<p>Maryland, USA</p>
-
-<a href="https://github.com/ybelai2">
-<i class="fab fa-github"></i>
-</a>
-
-<a href="mailto:Yohannesbelai4@email.com">
-<i class="fas fa-envelope"></i>
-</a>
-
-<a href="resume.pdf">
-<i class="fas fa-file"></i>
-</a>
-
+    <div class="hero-card fade-up delay-4">
+      <div class="card-label">// current stack</div>
+      <div class="tech-row">
+        <span class="tag accent">React 18</span>
+        <span class="tag accent">Spring Boot</span>
+        <span class="tag blue">AWS Lambda</span>
+        <span class="tag blue">PostgreSQL</span>
+        <span class="tag pink">Gemini 2.5</span>
+        <span class="tag pink">LlamaParse</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Auth0</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Java 17</span>
+        <span class="tag">TailwindCSS</span>
+        <span class="tag">JWT</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Full-stack apps shipped</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">API endpoints built</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Cloud platforms used</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
+<div class="divider"></div>
 
-<!-- MAIN CONTENT -->
-<div class="section-2">
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-num">01 — Experience</div>
+    <h2>Where I've Worked</h2>
+  </div>
 
-<h2>About</h2>
-<p>
-I am a Computer Science student with experience building applications using
-Java, HTML, JavaScript & CSS. I enjoy developing software using
-object-oriented design, data structures, and clean architecture. Some of my hobbies include playing sports such as basketball and soccer. I also have an affinity towards drawing and graphic design. 
-</p>
+  <div class="exp-item">
+    <div class="exp-meta">
+      <div class="exp-date">Aug 2025 — Present</div>
+      <div class="exp-company">Alignerr</div>
+    </div>
+    <div>
+      <div class="exp-title">AI Data Annotator / Java Developer</div>
+      <ul class="exp-bullets">
+        <li>Built cloud-native applications using AWS Lambda, SQS, and S3 for scalable data processing pipelines.</li>
+        <li>Created high-quality labeled datasets for generative AI model training, ensuring data accuracy and integrity.</li>
+        <li>Refactored AI-generated Java code for performance and production-readiness through API integration, unit testing, and structured code reviews.</li>
+        <li>Collaborated with cross-functional teams using GitHub workflows and CI/CD practices.</li>
+      </ul>
+      <div class="tech-row" style="margin-top: 1rem; margin-bottom: 0;">
+        <span class="tag">Java</span><span class="tag">AWS Lambda</span>
+        <span class="tag">SQS</span><span class="tag">S3</span><span class="tag">GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<div class="divider"></div>
 
-<h2>Skills</h2>
-<ul>
-<li>Java</li>
-<li>HTML</li>
-<li>JavaScript</li>
-<li>CSS </li>
-<li>Graphic Design</li>
-</ul>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <div class="section-num">02 — Projects</div>
+    <h2>Things I've Built</h2>
+  </div>
 
+  <div class="projects-grid">
 
-<h2>Projects</h2>
-<ul>
+    <!-- Featured: SyllabiXtract -->
+    <div class="project-card featured">
+      <div>
+        <span class="project-badge badge-ai">AI-Powered · Featured</span>
+        <div class="project-title">SyllabiXtract</div>
+        <p class="project-desc">
+          Full-stack web app that extracts deadlines, exams, and assignments from uploaded syllabi (PDF, DOC, DOCX)
+          and compiles them into an interactive master calendar. Uses Google Gemini 2.5 Flash and LlamaParse for
+          OCR and LLM-based structured data extraction from unstructured documents.
+        </p>
+        <div class="project-links">
+          <a href="https://syllabi-xtract.vercel.app/" target="_blank" class="project-link">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/ybelai2/SyllabiXtract" target="_blank" class="project-link">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom: 1rem;">// architecture</div>
+        <div class="project-stack">
+          <span class="stack-tag">React 18 + Vite</span>
+          <span class="stack-tag">TailwindCSS</span>
+          <span class="stack-tag">Auth0</span>
+          <span class="stack-tag">Java 17</span>
+          <span class="stack-tag">Spring Boot</span>
+          <span class="stack-tag">Spring Security</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">Hibernate/JPA</span>
+          <span class="stack-tag">Google Gemini 2.5</span>
+          <span class="stack-tag">LlamaParse</span>
+          <span class="stack-tag">OAuth2</span>
+        </div>
+        <ul class="exp-bullets" style="margin-top: 0.5rem;">
+          <li>Engineered React 18 frontend with Auth0 auth flow, dark/light mode, and drag-and-drop multi-file upload.</li>
+          <li>Designed secure user-specific PostgreSQL schema with Hibernate/JPA to persist extracted calendar events.</li>
+          <li>Integrated LlamaParse + Gemini APIs on Spring Boot backend for LLM-based extraction from unstructured docs.</li>
+        </ul>
+      </div>
+    </div>
 
-<li>
-Beverage Shop Ordering System (Java)
-</li>
+    <!-- Campus Events -->
+    <div class="project-card">
+      <span class="project-badge badge-full">Full-Stack</span>
+      <div class="project-title">Campus Events App</div>
+      <p class="project-desc">
+        Campus event platform for Towson University enabling students, hosts, and admins to discover,
+        create, and manage events through a role-based access system with smart RSVP notifications.
+      </p>
+      <div class="project-stack">
+        <span class="stack-tag">JavaScript</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Express.js</span>
+        <span class="stack-tag">MongoDB</span>
+        <span class="stack-tag">Mongoose</span>
+        <span class="stack-tag">JWT</span>
+        <span class="stack-tag">Vercel</span>
+        <span class="stack-tag">Render</span>
+      </div>
+      <ul class="exp-bullets" style="margin-bottom: 1.5rem;">
+        <li>Built RESTful API with 12+ endpoints covering events, RSVPs, orgs, and notifications.</li>
+        <li>Designed MongoDB schema with 5 collections; JWT auth with bcrypt password hashing.</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://campusevents-olmp.onrender.com/api" target="_blank" class="project-link">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Live API
+        </a>
+        <a href="https://github.com/ybelai2/CampusEvents" target="_blank" class="project-link">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
 
-<li>
-Study Session Logger (JavaFX)
-</li>
+    <!-- Alignerr / Cloud work -->
+    <div class="project-card">
+      <span class="project-badge badge-work">Cloud · Professional</span>
+      <div class="project-title">AWS Cloud Pipelines</div>
+      <p class="project-desc">
+        At Alignerr, designed and implemented cloud-native data processing pipelines
+        for AI model training workflows using serverless AWS architecture.
+      </p>
+      <div class="project-stack">
+        <span class="stack-tag">AWS Lambda</span>
+        <span class="stack-tag">SQS</span>
+        <span class="stack-tag">S3</span>
+        <span class="stack-tag">Java</span>
+        <span class="stack-tag">CI/CD</span>
+      </div>
+      <ul class="exp-bullets" style="margin-bottom: 1.5rem;">
+        <li>Implemented event-driven Lambda functions triggered by SQS message queues.</li>
+        <li>Refactored AI-generated code for production-readiness with unit and integration tests.</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://github.com/ybelai2" target="_blank" class="project-link">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
 
-</ul>
+  </div>
+</section>
 
-<div class="section-3">
-  
-<h2>Links</h2>
+<div class="divider"></div>
 
-<p>
-<a href="resume.pdf">Resume</a>
-</p>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <div class="section-num">03 — Skills</div>
+    <h2>Technologies</h2>
+  </div>
 
-<p>
-<a href="https://github.com/ybelai2">GitHub</a>
-</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-dot"></span>Java</div>
+        <div class="skill-item"><span class="skill-dot"></span>JavaScript</div>
+        <div class="skill-item"><span class="skill-dot"></span>Python</div>
+        <div class="skill-item"><span class="skill-dot"></span>SQL</div>
+        <div class="skill-item"><span class="skill-dot"></span>HTML / CSS</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Frontend</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-dot"></span>React 18 + Vite</div>
+        <div class="skill-item"><span class="skill-dot"></span>TailwindCSS</div>
+        <div class="skill-item"><span class="skill-dot"></span>Auth0 / OAuth2</div>
+        <div class="skill-item"><span class="skill-dot"></span>JWT</div>
+        <div class="skill-item"><span class="skill-dot"></span>JavaFX</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Backend</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-dot"></span>Spring Boot</div>
+        <div class="skill-item"><span class="skill-dot"></span>Spring Security</div>
+        <div class="skill-item"><span class="skill-dot"></span>Node.js / Express</div>
+        <div class="skill-item"><span class="skill-dot"></span>REST API Design</div>
+        <div class="skill-item"><span class="skill-dot"></span>Hibernate / JPA</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Databases</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-dot"></span>PostgreSQL</div>
+        <div class="skill-item"><span class="skill-dot"></span>MongoDB</div>
+        <div class="skill-item"><span class="skill-dot"></span>Mongoose</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Cloud & DevOps</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-dot"></span>AWS Lambda</div>
+        <div class="skill-item"><span class="skill-dot"></span>AWS SQS + S3</div>
+        <div class="skill-item"><span class="skill-dot"></span>CI/CD Pipelines</div>
+        <div class="skill-item"><span class="skill-dot"></span>Git / GitHub</div>
+        <div class="skill-item"><span class="skill-dot"></span>Vercel / Render</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">AI / Other</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-dot"></span>Google Gemini API</div>
+        <div class="skill-item"><span class="skill-dot"></span>LlamaParse</div>
+        <div class="skill-item"><span class="skill-dot"></span>OOP & Data Structures</div>
+        <div class="skill-item"><span class="skill-dot"></span>Cloud-Native Architecture</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>
-<a href="mailto:Yohannesbelai4@email.com">Email</a>
-</p>
+<div class="divider"></div>
 
-</div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <div class="section-num">04 — Education</div>
+    <h2>Background</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-school">Towson University</div>
+      <div class="edu-degree">B.S. Computer Science</div>
+      <div class="edu-date">Expected May 2027</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-school">Montgomery College</div>
+      <div class="edu-degree">A.S. Computer Science</div>
+      <div class="edu-date">Completed</div>
+    </div>
+  </div>
+</section>
 
-</div>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-title">Let's work together.</div>
+    <p class="contact-sub">Open to part-time developer roles and full-time positions starting Spring 2027.</p>
+    <div class="contact-links">
+      <a href="mailto:yohannesbelai4@gmail.com" class="contact-link">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        yohannesbelai4@gmail.com
+      </a>
+      <a href="https://github.com/ybelai2" target="_blank" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        github.com/ybelai2
+      </a>
+      <a href="resume.pdf" class="contact-link">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Download Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span style="color: var(--accent);">ybelai2</span> · Built with HTML, CSS & intention · Olney, MD
+</footer>
 
 </body>
-
 </html>
