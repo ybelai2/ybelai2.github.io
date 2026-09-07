@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Yohannes Belai</title>
+    
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <a href="index.html" class="logo">Yohannes.</a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="blog-content" class="markdown-body fade-in">
+            <p>Loading post...</p>
+        </article>
+        
+        <div style="margin-top: 4rem;">
+            <a href="index.html#blog" class="text-link">&larr; Back to all posts</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-name">Yohannes Belai</p>
+            <div class="footer-bottom">
+                <span class="copyright">&copy; <span id="year">2026</span> Yohannes Belai</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set the year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Fetch and parse the Markdown file
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+        const contentDiv = document.getElementById('blog-content');
+
+        if (fileName) {
+            fetch(`blog/${fileName}.md`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Post not found");
+                    return response.text();
+                })
+                .then(markdown => {
+                    contentDiv.innerHTML = marked.parse(markdown);
+                    contentDiv.classList.add('visible'); // Trigger fade-in
+                })
+                .catch(err => {
+                    contentDiv.innerHTML = "<h1>404</h1><p>Sorry, that blog post couldn't be found.</p>";
+                    contentDiv.classList.add('visible');
+                });
+        } else {
+            contentDiv.innerHTML = "<h1>Error</h1><p>No blog post specified.</p>";
+            contentDiv.classList.add('visible');
+        }
+    </script>
+</body>
+</html>
