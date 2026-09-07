@@ -1,1835 +1,239 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yohannes Belai — Software Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #0C0E12;
-    --surface: #13161C;
-    --surface2: #1A1E27;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.13);
-    --text: #E8EAF0;
-    --muted: #6B7280;
-    --accent: #4EFFA0;
-    --accent2: #38BDF8;
-    --accent3: #F472B6;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'Outfit', system-ui, sans-serif;
-    --mono: 'DM Mono', 'Courier New', monospace;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-weight: 300;
-    line-height: 1.7;
-    font-size: 16px;
-    overflow-x: hidden;
-  }
-
-  ::selection { background: var(--accent); color: #000; }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: rgba(12,14,18,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--text); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 3rem 5rem;
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-  }
-
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-bio {
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #0C0E12;
-  }
-
-  .btn-primary:hover {
-    background: #6DFFB3;
-    transform: translateY(-1px);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border2);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* HERO CARD */
-  .hero-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      var(--accent),
-      var(--accent2),
-      var(--accent3)
-    );
-  }
-
-  .card-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  .tech-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 1.5rem;
-  }
-
-  .tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .tag.accent {
-    background: rgba(78,255,160,0.08);
-    border-color: rgba(78,255,160,0.25);
-    color: var(--accent);
-  }
-
-  .tag.blue {
-    background: rgba(56,189,248,0.08);
-    border-color: rgba(56,189,248,0.25);
-    color: var(--accent2);
-  }
-
-  .tag.pink {
-    background: rgba(244,114,182,0.08);
-    border-color: rgba(244,114,182,0.25);
-    color: var(--accent3);
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    color: var(--text);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 6px;
-  }
-
-  /* SECTIONS */
-  section {
-    padding: 6rem 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    margin-bottom: 3rem;
-  }
-
-  .section-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.15;
-  }
-
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* EXPERIENCE */
-  .exp-item {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 3rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .exp-date {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-  }
-
-  .exp-company {
-    font-size: 14px;
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .exp-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 1rem;
-  }
-
-  .exp-bullets {
-    list-style: none;
-  }
-
-  .exp-bullets li {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    padding-left: 1.2rem;
-    position: relative;
-    margin-bottom: 0.6rem;
-  }
-
-  .exp-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 12px;
-  }
-
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover {
-    border-color: var(--border2);
-    transform: translateY(-3px);
-  }
-
-  .project-card.featured {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  .project-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 3px;
-    display: inline-block;
-    margin-bottom: 1rem;
-  }
-
-  .badge-ai {
-    background: rgba(78,255,160,0.1);
-    color: var(--accent);
-  }
-
-  .badge-full {
-    background: rgba(56,189,248,0.1);
-    color: var(--accent2);
-  }
-
-  .badge-work {
-    background: rgba(244,114,182,0.1);
-    color: var(--accent3);
-  }
-
-  .project-title {
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.75rem;
-  }
-
-  .project-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    flex: 1;
-  }
-
-  .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 1.5rem;
-  }
-
-  .stack-tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--muted);
-  }
-
-  .project-links {
-    display: flex;
-    gap: 1.25rem;
-    margin-top: auto;
-  }
-
-  .project-link {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.2s;
-  }
-
-  .project-link:hover {
-    color: var(--accent);
-  }
-
-  .project-link svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .skill-group {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-  }
-
-  .skill-group-title {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .skill-item {
-    font-size: 14px;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .skill-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  /* EDUCATION */
-  .edu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .edu-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.75rem;
-  }
-
-  .edu-school {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-  }
-
-  .edu-degree {
-    font-size: 14px;
-    color: var(--accent);
-    margin-bottom: 0.25rem;
-  }
-
-  .edu-date {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* CONTACT */
-  .contact-wrap {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact-wrap::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--accent),
-      transparent
-    );
-  }
-
-  .contact-title {
-    font-family: var(--serif);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact-sub {
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: all 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 2rem 3rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fade-up {
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-  .delay-4 { animation-delay: 0.4s; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav {
-      padding: 1rem 1.5rem;
-    }
-
-    .nav-links {
-      display: none;
-    }
-
-    .hero {
-      padding: 7rem 1.5rem 4rem;
-    }
-
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    section {
-      padding: 4rem 1.5rem;
-    }
-
-    .exp-item {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .project-card.featured {
-      grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .edu-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-wrap {
-      padding: 2.5rem 1.5rem;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .stat-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yohannes Belai — Software Engineer</title>
+    <meta name="description" content="Computer Science student building software, learning constantly, and trying to become a damn good engineer.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Yohannes Belai — Software Engineer">
+    <meta property="og:description" content="Computer Science student building software, learning constantly, and trying to become a damn good engineer.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAV -->
-
-<nav>
-  <a href="#" class="nav-logo">yb.dev</a>
-
-  <ul class="nav-links">
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-
-<a
-href="Yohannes_Belai_Software_Engineer_Resume_2026.pdf"
-class="btn btn-outline"
-style="padding: 0.5rem 1rem; font-size: 12px;"
-
->
-
-```
-Resume ↓
-```
-
-  </a>
-</nav>
-
-<!-- HERO -->
-
-<div style="max-width: 1100px; margin: 0 auto;">
-
-  <div class="hero">
-
-```
-<div class="hero-grid">
-
-  <div>
-
-    <div class="hero-eyebrow fade-up">
-      Software Engineer
-    </div>
-
-    <h1 class="fade-up delay-1">
-      Yohannes<br>
-      <em>Belai</em>
-    </h1>
-
-    <p class="hero-bio fade-up delay-2">
-      Computer Science student at Towson University focused on
-      backend and full-stack software development. I build web
-      applications and APIs using Java, Spring Boot, Python,
-      JavaScript, TypeScript, React, and Node.js, with experience
-      integrating AI APIs and working with relational and
-      document databases.
-    </p>
-
-    <div class="hero-cta fade-up delay-3">
-      <a href="#projects" class="btn btn-primary">
-        View My Work
-      </a>
-
-      <a href="#contact" class="btn btn-outline">
-        Get in Touch
-      </a>
-    </div>
-
-  </div>
-
-
-  <div class="hero-card fade-up delay-4">
-
-    <div class="card-label">
-      // technologies I work with
-    </div>
-
-    <div class="tech-row">
-
-      <span class="tag accent">Java</span>
-      <span class="tag accent">Spring Boot</span>
-      <span class="tag blue">React / Vite</span>
-      <span class="tag blue">TypeScript</span>
-      <span class="tag pink">Google Gemini API</span>
-      <span class="tag pink">Python</span>
-      <span class="tag">Node.js</span>
-      <span class="tag">Express.js</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">MongoDB</span>
-      <span class="tag">Apache POI</span>
-      <span class="tag">OAuth2 / JWT</span>
-
-    </div>
-
-    <div class="stat-row">
-
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Featured projects</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Primary languages</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-num">2027</div>
-        <div class="stat-label">Expected graduation</div>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-</div>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-  <div class="section-header">
-
-```
-<div class="section-num">
-  01 — Experience
-</div>
-
-<h2>
-  Where I've Worked
-</h2>
-```
-
-  </div>
-
-  <!-- ALIGNERR -->
-
-  <div class="exp-item">
-
-```
-<div class="exp-meta">
-
-  <div class="exp-date">
-    Aug 2025 — Present
-  </div>
-
-  <div class="exp-company">
-    Alignerr | Remote
-  </div>
-
-</div>
-
-
-<div>
-
-  <div class="exp-title">
-    Software Developer (Contract)
-  </div>
-
-  <ul class="exp-bullets">
-
-    <li>
-      Evaluate and validate AI-generated programming solutions
-      in Java and Python, assessing algorithmic correctness,
-      logical flow, and code quality.
-    </li>
-
-    <li>
-      Review generated code for logical bugs, edge-case failures,
-      and implementation issues, documenting findings through
-      structured technical evaluations.
-    </li>
-
-    <li>
-      Provide technical feedback used to improve the quality
-      and reliability of AI-generated programming responses.
-    </li>
-
-    <li>
-      Apply software engineering principles when evaluating
-      object-oriented design, algorithms, data structures,
-      and implementation approaches.
-    </li>
-
-  </ul>
-
-
-  <div
-    class="tech-row"
-    style="margin-top: 1rem; margin-bottom: 0;"
-  >
-
-    <span class="tag">Java</span>
-    <span class="tag">Python</span>
-    <span class="tag">Code Review</span>
-    <span class="tag">AI Evaluation</span>
-    <span class="tag">Algorithms</span>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-  <!-- PRIMARY TEACHER -->
-
-  <div class="exp-item">
-
-```
-<div class="exp-meta">
-
-  <div class="exp-date">
-    Jul 2026 — Aug 2026
-  </div>
-
-  <div class="exp-company">
-    Mobile App Building with AI
-  </div>
-
-</div>
-
-
-<div>
-
-  <div class="exp-title">
-    Primary Teacher
-  </div>
-
-  <ul class="exp-bullets">
-
-    <li>
-      Taught programming fundamentals and mobile application
-      development to students across two age groups.
-    </li>
-
-    <li>
-      Guided students through the development of functional
-      applications using MIT App Inventor while introducing
-      foundational programming and AI concepts.
-    </li>
-
-  </ul>
-
-
-  <div
-    class="tech-row"
-    style="margin-top: 1rem; margin-bottom: 0;"
-  >
-
-    <span class="tag">MIT App Inventor</span>
-    <span class="tag">Programming Fundamentals</span>
-    <span class="tag">AI Concepts</span>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-  <!-- TEACHING ASSISTANT -->
-
-  <div class="exp-item">
-
-```
-<div class="exp-meta">
-
-  <div class="exp-date">
-    Jun 2026 — Aug 2026
-  </div>
-
-  <div class="exp-company">
-    Summer Coding Camp
-  </div>
-
-</div>
-
-
-<div>
-
-  <div class="exp-title">
-    Teaching Assistant — Intermediate Python
-  </div>
-
-  <ul class="exp-bullets">
-
-    <li>
-      Mentored high school students in Python programming,
-      object-oriented programming, and algorithm design.
-    </li>
-
-    <li>
-      Conducted code reviews and helped students identify
-      and resolve implementation and debugging issues.
-    </li>
-
-    <li>
-      Provided feedback on code structure, clarity, and
-      programming practices.
-    </li>
-
-  </ul>
-
-
-  <div
-    class="tech-row"
-    style="margin-top: 1rem; margin-bottom: 0;"
-  >
-
-    <span class="tag">Python</span>
-    <span class="tag">OOP</span>
-    <span class="tag">Algorithms</span>
-    <span class="tag">Code Review</span>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-  <div class="section-header">
-
-```
-<div class="section-num">
-  02 — Projects
-</div>
-
-<h2>
-  Things I've Built
-</h2>
-```
-
-  </div>
-
-  <div class="projects-grid">
-
-```
-<!-- DRILL -->
-<div class="project-card featured">
-
-  <div>
-
-    <span class="project-badge badge-ai">
-      AI-Powered · Featured
-    </span>
-
-    <div class="project-title">
-      Drill — Study Material Generator
-    </div>
-
-    <p class="project-desc">
-      Full-stack study platform that processes PowerPoint
-      files and uses the Google Gemini API to generate
-      structured flashcards and quizzes. The application
-      combines document parsing, REST APIs, React, and
-      AI-generated content.
-    </p>
-
-
-    <div class="project-links">
-
-      <a
-        href="https://drillapi.onrender.com/"
-        target="_blank"
-        class="project-link"
-      >
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
-
-        Live Platform
-      </a>
-
-
-      <a
-        href="https://github.com/ybelai2"
-        target="_blank"
-        class="project-link"
-      >
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          />
-        </svg>
-
-        GitHub
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <div>
-
-    <div
-      class="card-label"
-      style="margin-bottom: 1rem;"
-    >
-      // system highlights
-    </div>
-
-
-    <div class="project-stack">
-
-      <span class="stack-tag">
-        React / Vite
-      </span>
-
-      <span class="stack-tag">
-        Spring Boot
-      </span>
-
-      <span class="stack-tag">
-        REST API
-      </span>
-
-      <span class="stack-tag">
-        Google Gemini API
-      </span>
-
-      <span class="stack-tag">
-        Apache POI
-      </span>
-
-      <span class="stack-tag">
-        Render
-      </span>
-
-      <span class="stack-tag">
-        Vercel
-      </span>
-
-    </div>
-
-
-    <ul class="exp-bullets">
-
-      <li>
-        Built a Spring Boot REST API using Apache POI to
-        extract structured information from .pptx files.
-      </li>
-
-      <li>
-        Integrated the Google Gemini API to generate
-        JSON-formatted study materials using structured
-        prompts.
-      </li>
-
-      <li>
-        Implemented request handling and retry logic for
-        communication with the AI API.
-      </li>
-
-      <li>
-        Deployed the backend on Render and the React/Vite
-        frontend on Vercel.
-      </li>
-
-    </ul>
-
-  </div>
-
-</div>
-
-
-<!-- SYLLABIXTRACT -->
-<div class="project-card">
-
-  <span class="project-badge badge-full">
-    Full-Stack · AI Platform
-  </span>
-
-  <div class="project-title">
-    SyllabiXtract
-  </div>
-
-  <p class="project-desc">
-    Web application for processing course syllabi and
-    organizing academic deadlines. The application supports
-    multi-file uploads, authentication, and AI-assisted
-    document processing.
-  </p>
-
-
-  <div class="project-stack">
-
-    <span class="stack-tag">React</span>
-    <span class="stack-tag">Vite</span>
-    <span class="stack-tag">Tailwind CSS</span>
-    <span class="stack-tag">Auth0 / OAuth2</span>
-    <span class="stack-tag">REST APIs</span>
-    <span class="stack-tag">Node.js</span>
-
-  </div>
-
-
-  <ul
-    class="exp-bullets"
-    style="margin-bottom: 1.5rem;"
-  >
-
-    <li>
-      Built a React frontend with Vite and Tailwind CSS
-      for multi-file syllabus uploads.
-    </li>
-
-    <li>
-      Implemented asynchronous upload handling and
-      progress indicators for the user interface.
-    </li>
-
-    <li>
-      Integrated OAuth2 authentication through Auth0 and
-      worked with REST API request and response structures.
-    </li>
-
-  </ul>
-
-
-  <div class="project-links">
-
-    <a
-      href="https://github.com/ybelai2"
-      target="_blank"
-      class="project-link"
-    >
-      <svg
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
-      </svg>
-
-      GitHub
-    </a>
-
-  </div>
-
-</div>
-
-
-<!-- CAMPUS EVENTS -->
-<div class="project-card">
-
-  <span class="project-badge badge-work">
-    Backend · REST API
-  </span>
-
-  <div class="project-title">
-    Campus Events API
-  </div>
-
-  <p class="project-desc">
-    Backend API for university event management with
-    authentication, role-based access control, and
-    MongoDB data modeling.
-  </p>
-
-
-  <div class="project-stack">
-
-    <span class="stack-tag">Node.js</span>
-    <span class="stack-tag">Express.js</span>
-    <span class="stack-tag">MongoDB</span>
-    <span class="stack-tag">JWT</span>
-    <span class="stack-tag">bcrypt</span>
-
-  </div>
-
-
-  <ul
-    class="exp-bullets"
-    style="margin-bottom: 1.5rem;"
-  >
-
-    <li>
-      Designed RESTful API endpoints for event creation,
-      management, registration, and user operations.
-    </li>
-
-    <li>
-      Implemented JWT-based authentication and
-      role-based access control.
-    </li>
-
-    <li>
-      Used bcrypt for password hashing and modeled
-      MongoDB collections for application data.
-    </li>
-
-    <li>
-      Added database indexing for commonly queried
-      event and user fields.
-    </li>
-
-  </ul>
-
-
-  <div class="project-links">
-
-    <a
-      href="https://campusevents-olmp.onrender.com/api"
-      target="_blank"
-      class="project-link"
-    >
-      <svg
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10v-4M14 4h6m0 0v6m0-6L10 14"
-        />
-      </svg>
-
-      Live API
-    </a>
-
-
-    <a
-      href="https://github.com/ybelai2"
-      target="_blank"
-      class="project-link"
-    >
-      <svg
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
-      </svg>
-
-      GitHub
-    </a>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-  <div class="section-header">
-
-```
-<div class="section-num">
-  03 — Skills
-</div>
-
-<h2>
-  Technical Skills
-</h2>
-```
-
-  </div>
-
-  <div class="skills-grid">
-
-```
-<div class="skill-group">
-
-  <div class="skill-group-title">
-    Languages
-  </div>
-
-  <div class="skill-list">
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Java
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Python
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      JavaScript
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      TypeScript
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      SQL
-    </div>
-
-  </div>
-
-</div>
-
-
-<div class="skill-group">
-
-  <div class="skill-group-title">
-    Backend
-  </div>
-
-  <div class="skill-list">
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Spring Boot
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      REST APIs
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Node.js & Express.js
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      JPA / Hibernate
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Apache POI
-    </div>
-
-  </div>
-
-</div>
-
-
-<div class="skill-group">
-
-  <div class="skill-group-title">
-    Frontend
-  </div>
-
-  <div class="skill-list">
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      React
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Vite
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      TypeScript
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Tailwind CSS
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      HTML / CSS
-    </div>
-
-  </div>
-
-</div>
-
-
-<div class="skill-group">
-
-  <div class="skill-group-title">
-    Databases & Auth
-  </div>
-
-  <div class="skill-list">
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      PostgreSQL
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      MongoDB
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Database Indexing
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      JWT
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      OAuth2
-    </div>
-
-  </div>
-
-</div>
-
-
-<div class="skill-group">
-
-  <div class="skill-group-title">
-    CS Foundations
-  </div>
-
-  <div class="skill-list">
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Data Structures & Algorithms
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Object-Oriented Programming
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Software Engineering
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Operating Systems
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Computer Organization
-    </div>
-
-  </div>
-
-</div>
-
-
-<div class="skill-group">
-
-  <div class="skill-group-title">
-    AI & Tools
-  </div>
-
-  <div class="skill-list">
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Google Gemini API
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      AI-Assisted Code Review
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Prompt Engineering
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Git & GitHub
-    </div>
-
-    <div class="skill-item">
-      <span class="skill-dot"></span>
-      Render & Vercel
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-  <div class="section-header">
-
-```
-<div class="section-num">
-  04 — Education
-</div>
-
-<h2>
-  Academic Background
-</h2>
-```
-
-  </div>
-
-  <div class="edu-grid">
-
-```
-<div class="edu-card">
-
-  <div class="edu-school">
-    Towson University
-  </div>
-
-  <div class="edu-degree">
-    B.S. in Computer Science
-  </div>
-
-  <div class="edu-date">
-    Expected May 2027
-  </div>
-
-</div>
-
-
-<div class="edu-card">
-
-  <div class="edu-school">
-    Montgomery College
-  </div>
-
-  <div class="edu-degree">
-    A.S. in Computer Science
-  </div>
-
-  <div class="edu-date">
-    Completed
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-  <div class="contact-wrap">
-
-```
-<div class="contact-title">
-  Let's build together.
-</div>
-
-<p class="contact-sub">
-  Open to software engineering, backend, and full-stack
-  opportunities where I can build useful software and
-  continue growing as an engineer.
-</p>
-
-
-<div class="contact-links">
-
-  <a
-    href="mailto:yohannesbelai4@gmail.com"
-    class="contact-link"
-  >
-    <svg
-      width="16"
-      height="16"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-      />
-    </svg>
-
-    yohannesbelai4@gmail.com
-  </a>
-
-
-  <a
-    href="https://github.com/ybelai2"
-    target="_blank"
-    class="contact-link"
-  >
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-    </svg>
-
-    github.com/ybelai2
-  </a>
-
-
-  <a
-    href="Yohannes_Belai_Software_Engineer_Resume_2026.pdf"
-    class="contact-link"
-  >
-    <svg
-      width="16"
-      height="16"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-      />
-    </svg>
-
-    Download Resume
-  </a>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<footer>
-
-  <span style="color: var(--accent);">
-    ybelai2
-  </span>
-
-· Built with care · Olney, MD
-
-</footer>
-
+    <nav class="site-nav">
+        <a href="#" class="logo">Yohannes.</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- ABOUT / HERO SECTION -->
+        <section id="about" class="fade-in">
+            <p class="greeting">Hey, I'm Yohannes.</p>
+            <h1 class="positioning">
+                Computer Science student building software, learning constantly, and trying to become a damn good engineer.
+            </h1>
+            
+            <div class="bio">
+                <p>I'm currently studying Computer Science at Towson University, graduating in May 2027. I like building software, figuring out how things work, and learning about ideas that are much bigger than software.</p>
+                <p>When I'm not coding, you'll probably find me watching basketball, thinking about philosophy or theology, watching sci-fi or comedy, or wishing I were at the beach.</p>
+            </div>
+
+            <div class="interests">
+                <span class="mono-label">Things I genuinely like:</span>
+                <p class="interest-list">
+                    Philosophy <span class="sep">/</span> Theology <span class="sep">/</span> Basketball <span class="sep">/</span> The World Cup <span class="sep">/</span> Sci-Fi <span class="sep">/</span> Comedy <span class="sep">/</span> Coffee <span class="sep">/</span> The Beach <span class="sep">/</span> Shrimp
+                </p>
+            </div>
+        </section>
+
+        <!-- CURRENTLY SECTION -->
+        <section id="currently" class="fade-in">
+            <h2 class="section-title">Currently</h2>
+            <div class="currently-grid">
+                <div class="current-item">
+                    <span class="mono-label">Studying</span>
+                    <p>Computer Science @ Towson University</p>
+                </div>
+                <div class="current-item">
+                    <span class="mono-label">Building</span>
+                    <p>Full-stack and backend projects</p>
+                </div>
+                <div class="current-item">
+                    <span class="mono-label">Learning</span>
+                    <p>Software engineering, DSA, backend architecture</p>
+                </div>
+                <div class="current-item">
+                    <span class="mono-label">Looking for</span>
+                    <p>Software engineering internships & entry-level roles</p>
+                </div>
+                <div class="current-item">
+                    <span class="mono-label">Thinking about</span>
+                    <p>Philosophy, theology, technology, and life</p>
+                </div>
+                <div class="current-item">
+                    <span class="mono-label">Watching</span>
+                    <p>Basketball, sci-fi, comedy</p>
+                </div>
+                <div class="current-item">
+                    <span class="mono-label">Relaxing</span>
+                    <p>At the beach, preferably</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="fade-in">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="list-layout">
+                
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Drill <span class="mono-label tag">Study Material Generator</span></h3>
+                        <span class="item-year">2026</span>
+                    </div>
+                    <p class="item-desc">A full-stack study platform that processes PowerPoint files and uses Google's Gemini API to generate structured flashcards and quizzes.</p>
+                    <div class="item-meta">
+                        <span class="tech-stack">Spring Boot, React, Vite, Apache POI, Gemini API</span>
+                        <a href="https://drillapi.onrender.com/" target="_blank" class="text-link">Visit Live &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">SyllabiXtract</h3>
+                        <span class="item-year">2026</span>
+                    </div>
+                    <p class="item-desc">A web application that allows students to upload syllabus documents and extract important academic deadlines using AI-assisted document processing.</p>
+                    <div class="item-meta">
+                        <span class="tech-stack">React, Vite, Tailwind, Node.js, REST APIs, Auth0</span>
+                        <a href="https://github.com/ybelai2" target="_blank" class="text-link">Source Code &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Campus Events API</h3>
+                        <span class="item-year">2025</span>
+                    </div>
+                    <p class="item-desc">A backend REST API for campus event management. Features event CRUD, registration, user operations, and role-based access control with database indexing.</p>
+                    <div class="item-meta">
+                        <span class="tech-stack">Node.js, Express, MongoDB, JWT, bcrypt</span>
+                        <a href="https://campusevents-olmp.onrender.com/" target="_blank" class="text-link">API Endpoint &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section id="work" class="fade-in">
+            <h2 class="section-title">Experience</h2>
+            <div class="list-layout">
+                
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Alignerr</h3>
+                        <span class="item-year">Aug 2025 — Present</span>
+                    </div>
+                    <p class="item-subtitle">Software Developer (Contract) · Remote</p>
+                    <ul class="editorial-list">
+                        <li>Evaluate and validate AI-generated programming solutions in Java and Python.</li>
+                        <li>Assess algorithmic correctness, code quality, bugs, edge cases, and engineering practices.</li>
+                        <li>Provide technical feedback and identify issues in generated code.</li>
+                    </ul>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Mobile App Building with AI</h3>
+                        <span class="item-year">Jul 2026 — Aug 2026</span>
+                    </div>
+                    <p class="item-subtitle">Primary Teacher</p>
+                    <ul class="editorial-list">
+                        <li>Taught programming and mobile application development using MIT App Inventor.</li>
+                        <li>Introduced foundational programming and artificial intelligence concepts.</li>
+                    </ul>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Summer Coding Camp</h3>
+                        <span class="item-year">Jun 2026 — Aug 2026</span>
+                    </div>
+                    <p class="item-subtitle">Teaching Assistant — Intermediate Python</p>
+                    <ul class="editorial-list">
+                        <li>Mentored high school students in Python, OOP, and algorithms.</li>
+                        <li>Reviewed code and provided feedback on structure, clarity, and programming practices.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WRITING / BLOG SECTION -->
+        <section id="writing" class="fade-in">
+            <h2 class="section-title">Writing</h2>
+            <p class="section-intro">Short thoughts on things I'm learning, building, or thinking about.</p>
+            <div class="list-layout blog-list">
+                
+                <a href="#writing" class="blog-item">
+                    <span class="blog-date">TBD</span>
+                    <h3 class="blog-title">What I Learned From Building My First AI-Powered App</h3>
+                </a>
+
+                <a href="#writing" class="blog-item">
+                    <span class="blog-date">TBD</span>
+                    <h3 class="blog-title">Why I Keep Coming Back to Philosophy</h3>
+                </a>
+
+                <a href="#writing" class="blog-item">
+                    <span class="blog-date">TBD</span>
+                    <h3 class="blog-title">Things I Wish I Knew Before Studying Computer Science</h3>
+                </a>
+
+                <a href="#writing" class="blog-item">
+                    <span class="blog-date">TBD</span>
+                    <h3 class="blog-title">What Makes a Good Software Engineer?</h3>
+                </a>
+
+                <a href="#writing" class="blog-item">
+                    <span class="blog-date">TBD</span>
+                    <h3 class="blog-title">The World Cup Is Different</h3>
+                </a>
+
+            </div>
+        </section>
+        
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="fade-in">
+            <h2 class="section-title">Want to talk?</h2>
+            <div class="contact-links">
+                <a href="https://github.com/ybelai2" target="_blank" class="contact-btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/yohannesbelai/" target="_blank" class="contact-btn">LinkedIn</a>
+                <a href="mailto:yohannesbelai4@gmail.com" class="contact-btn">Email</a>
+                <a href="Yohannes_Belai_Software_Engineer_Resume_2026.pdf" target="_blank" class="contact-btn">Résumé</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-name">Yohannes Belai</p>
+            <p class="footer-bio">Computer Science student &middot; Software builder &middot; Basketball nerd</p>
+            <div class="footer-bottom">
+                <span class="copyright">&copy; <span id="year">2026</span> Yohannes Belai</span>
+                <span class="local-time" id="time-display">MD, USA — --:--</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
