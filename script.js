@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Stop observing once revealed
-                // observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         timeDisplay.textContent = `MD, USA — ${timeString}`;
     }
 
-    // Update time immediately, then every minute
     updateTime();
     setInterval(updateTime, 60000);
 });
