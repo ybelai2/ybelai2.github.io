@@ -197,7 +197,7 @@ section {
 }
 
 /* =========================================
-   CURRENTLY
+   CURRENTLY & GITHUB CONTRIBUTION GRAPH
 ========================================= */
 .currently-grid {
     display: grid;
@@ -209,6 +209,27 @@ section {
     margin-top: 0.25rem;
     font-size: 0.95rem;
     color: var(--text-main);
+}
+
+.github-contrib-wrap {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.contrib-graph {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contrib-graph:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* =========================================
