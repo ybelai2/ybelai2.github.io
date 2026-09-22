@@ -330,13 +330,13 @@
       var toastTimer;
 
       function initials(value) {
-        return value.split(/\\s+/).filter(Boolean).slice(0,2).map(function (word) { return word.charAt(0); }).join("").toUpperCase() || "PC";
+        return value.split(/\s+/).filter(Boolean).slice(0,2).map(function (word) { return word.charAt(0); }).join("").toUpperCase() || "PC";
       }
       function slotArray() {
         return config.slots.split(",").map(function (slot) { return slot.trim(); }).filter(Boolean).slice(0,6);
       }
       function safeB64Encode(text) {
-        return btoa(unescape(encodeURIComponent(text))).replace(/\\+/g, "-").replace(/\\//g, "_").replace(/=+$/g, "");
+        return btoa(unescape(encodeURIComponent(text))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
       }
       function safeB64Decode(text) {
         var source = text.replace(/-/g, "+").replace(/_/g, "/");
