@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pickup",
+    "icon": "basketball",
+    "title": "Run a few games",
+    "subtitle": "Pickup basketball",
+    "opener": "Hey Yohannes! Know any good pickup runs around the DMV? I'd be down to play."
+  },
+  {
+    "id": "coffee",
+    "icon": "coffee",
+    "title": "Grab a coffee",
+    "subtitle": "Let the conversation wander",
+    "opener": "Hey Yohannes! We should grab a coffee sometime. Any favorite spots around the DMV?"
+  },
+  {
+    "id": "build",
+    "icon": "code",
+    "title": "Build something",
+    "subtitle": "Bring the half-formed idea",
+    "opener": "Hey Yohannes! I've got a software idea I'd love to talk through with you."
+  },
+  {
+    "id": "food",
+    "icon": "utensils",
+    "title": "Try a new spot",
+    "subtitle": "Food & a change of scenery",
+    "opener": "Hey Yohannes! Got any restaurants on your list? Let's try somewhere new around the DMV."
+  },
+  {
+    "id": "faith",
+    "icon": "cross",
+    "title": "Talk about life",
+    "subtitle": "Faith, big questions, all of it",
+    "opener": "Hey Yohannes! I saw that you're into conversations about faith and life. I'd love to hear more."
+  },
+  {
+    "id": "study",
+    "icon": "book",
+    "title": "Get some work done",
+    "subtitle": "A study session with company",
+    "opener": "Hey Yohannes! Want to get a study or work session in sometime?"
+  }
+]

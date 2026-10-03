@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /site/
+
+Sitemap: https://ybelai2.github.io/sitemap.xml

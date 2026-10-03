@@ -1,0 +1,38 @@
+[
+  {
+    "id": "interviewos",
+    "name": "InterviewOS",
+    "category": "Interview preparation",
+    "description": "A place to turn a résumé into more focused interview preparation.",
+    "technologies": ["React", "PostgreSQL", "Supabase"],
+    "github": null,
+    "demo": null,
+    "note": "Private repository",
+    "mark": "io",
+    "color": "olive"
+  },
+  {
+    "id": "drill",
+    "name": "Drill",
+    "category": "A better way to study",
+    "description": "Turns class PowerPoints into flashcards and quizzes you can actually study with.",
+    "technologies": ["Java", "Spring Boot", "React"],
+    "github": "https://github.com/ybelai2/drillapi",
+    "demo": "https://study-cs.vercel.app/",
+    "note": null,
+    "mark": "d.",
+    "color": "clay"
+  },
+  {
+    "id": "syllabixtract",
+    "name": "SyllabiXtract",
+    "category": "Built with a team",
+    "description": "A class project that brings syllabus deadlines and assignments into one calendar.",
+    "technologies": ["Spring Boot", "React", "PostgreSQL"],
+    "github": "https://github.com/ybelai2/SyllabiXtract",
+    "demo": "https://syllabi-xtract.vercel.app/",
+    "note": null,
+    "mark": "sx",
+    "color": "blue"
+  }
+]

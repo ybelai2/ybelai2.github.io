@@ -1,0 +1,66 @@
+[
+  {
+    "id": "basketball",
+    "icon": "basketball",
+    "label": "Basketball",
+    "headline": "Yes, I can keep talking basketball.",
+    "description": "Pickup is one of my favorite ways to spend time. I follow the NBA, and Steph Curry is the player I look to for inspiration.",
+    "prompt": "What's your all-time starting five?"
+  },
+  {
+    "id": "faith",
+    "icon": "cross",
+    "label": "Faith",
+    "headline": "Something that keeps me grounded.",
+    "description": "I'm Ethiopian Orthodox Christian. Faith is part of how I try to live, and I enjoy thoughtful conversations about it.",
+    "prompt": "What has your faith taught you lately?"
+  },
+  {
+    "id": "culture",
+    "icon": "globe",
+    "label": "Ethiopian roots",
+    "headline": "Ethiopian roots. Maryland home.",
+    "description": "Being Ethiopian-American is part of my story. Culture, community, and the conversations between different worlds matter to me.",
+    "prompt": "What's something you love about Ethiopian culture?"
+  },
+  {
+    "id": "fitness",
+    "icon": "dumbbell",
+    "label": "Fitness",
+    "headline": "A little stronger, a little more consistent.",
+    "description": "The gym is part of my week. I'm interested in building habits I can actually keep, on and off the court.",
+    "prompt": "What's your favorite way to train?"
+  },
+  {
+    "id": "technology",
+    "icon": "code",
+    "label": "Technology",
+    "headline": "Sometimes I just have to build the idea.",
+    "description": "I like turning a random idea into working software, then figuring out how to make the systems behind it reliable.",
+    "prompt": "What would you build if you had a free weekend?"
+  },
+  {
+    "id": "philosophy",
+    "icon": "book",
+    "label": "Ancient wisdom",
+    "headline": "Old questions. Still very relevant.",
+    "description": "I'm drawn to philosophy and ancient wisdom, especially questions about attention, character, faith, and how to live well.",
+    "prompt": "What's an idea that changed how you see life?"
+  },
+  {
+    "id": "dmv",
+    "icon": "compass",
+    "label": "New places",
+    "headline": "There is more to see around here.",
+    "description": "I'm trying to explore more of the DMV and say yes to more experiences. A good local recommendation is always welcome.",
+    "prompt": "What's an underrated place around the DMV?"
+  },
+  {
+    "id": "conversations",
+    "icon": "message",
+    "label": "Good conversations",
+    "headline": "We can skip the perfect opening line.",
+    "description": "Life, relationships, sports, faith, ambitious ideas, or figuring out our 20s. I like a conversation that goes somewhere.",
+    "prompt": "What are you trying to figure out in your 20s?"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "updated": "2026-10-03",
+  "items": [
+    {
+      "icon": "graduation",
+      "label": "Finishing",
+      "value": "CS at Towson",
+      "detail": "Class of 2027"
+    },
+    {
+      "icon": "code",
+      "label": "Building",
+      "value": "Ideas into software",
+      "detail": "Backend & cloud"
+    },
+    {
+      "icon": "basketball",
+      "label": "Off the screen",
+      "value": "Pickup & the gym",
+      "detail": "Always room to improve"
+    },
+    {
+      "icon": "compass",
+      "label": "Making room for",
+      "value": "More life in the DMV",
+      "detail": "New places. Good people."
+    }
+  ]
+}

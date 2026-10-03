@@ -1,0 +1,27 @@
+[
+  {
+    "id": "instagram",
+    "label": "Instagram",
+    "href": null,
+    "handle": null,
+    "primary": true
+  },
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "href": "https://www.linkedin.com/in/yohannesbelai/",
+    "primary": false
+  },
+  {
+    "id": "github",
+    "label": "GitHub",
+    "href": "https://github.com/ybelai2",
+    "primary": false
+  },
+  {
+    "id": "email",
+    "label": "Email",
+    "href": "mailto:yohannesbelai4@gmail.com",
+    "primary": false
+  }
+]

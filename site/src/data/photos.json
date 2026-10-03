@@ -1,0 +1,38 @@
+[
+  {
+    "id": "court",
+    "src": "/photos/basketball.webp",
+    "category": "Basketball",
+    "title": "One more game.",
+    "caption": "Always a good reason to get off the screen.",
+    "alt": "Stock photograph of a basketball court and hoop; a placeholder for Yohannes's basketball photos",
+    "placeholder": true,
+    "credit": "Unsplash",
+    "source": "https://images.unsplash.com/photo-1546519638-68e109498ffc",
+    "className": "photo-court"
+  },
+  {
+    "id": "dmv",
+    "src": "/photos/georgetown.webp",
+    "category": "Around the DMV",
+    "title": "More places to find.",
+    "caption": "Taking recommendations for the next spot.",
+    "alt": "Stock photograph of Georgetown row houses in autumn; a placeholder for personal DMV photos",
+    "placeholder": true,
+    "credit": "Unsplash",
+    "source": "https://unsplash.com/s/photos/georgetown-dc",
+    "className": "photo-dmv"
+  },
+  {
+    "id": "coffee",
+    "src": "/photos/coffee.webp",
+    "category": "Slow moments",
+    "title": "No rush to wrap up.",
+    "caption": "The kind of conversation that needs another coffee.",
+    "alt": "Stock photograph of coffee; a placeholder for personal everyday photos",
+    "placeholder": true,
+    "credit": "Unsplash",
+    "source": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+    "className": "photo-coffee"
+  }
+]

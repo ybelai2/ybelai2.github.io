@@ -1,0 +1,23 @@
+[
+  {
+    "id": "outside",
+    "date": "2026-10-03",
+    "category": "Life",
+    "title": "A little more outside my comfort zone.",
+    "body": "Making more room for new people, stronger friendships, and actually getting out around the DMV."
+  },
+  {
+    "id": "senior-year",
+    "date": "2026-10-03",
+    "category": "School",
+    "title": "The senior-year chapter.",
+    "body": "Finishing Computer Science at Towson, with graduation on the horizon in 2027."
+  },
+  {
+    "id": "systems",
+    "date": "2026-10-03",
+    "category": "Learning",
+    "title": "Going deeper on the things behind the screen.",
+    "body": "Backend systems, AWS, and the question of how to make software work reliably."
+  }
+]
