@@ -24,31 +24,32 @@ const serif = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
-  title: "Yohannes Belai — A little corner of the internet",
+  title: "Yohannes Belai — See what others overlook.",
   description:
-    "Ethiopian roots. Maryland home. Basketball, faith, building things, and figuring out my 20s. Come say what’s up.",
+    "Personal field notes on human behavior, clear thinking, emotional discipline, and a deliberate life. By Yohannes Belai.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
     siteName: "Yohannes Belai",
-    title: "Hey, I’m Yohannes.",
+    title: "Yohannes Belai — See what others overlook.",
     description:
-      "Basketball, faith, building things, and figuring out my 20s. Maryland / DMV.",
+      "See clearly. Think independently. Move deliberately. Personal notes, principles, and selected work.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Yohannes Belai — A little corner of the internet",
+        alt: "Yohannes Belai — See what others overlook.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hey, I’m Yohannes.",
-    description: "A little corner of the internet. Maryland / DMV.",
+    title: "Yohannes Belai — See what others overlook.",
+    description:
+      "Personal notes on clear thinking, human behavior, and deliberate action.",
     images: ["/og-image.jpg"],
   },
   icons: { icon: "/icon.svg", apple: "/apple-touch-icon.png" },
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f6f5ef",
+  themeColor: "#0b0d0f",
   viewportFit: "cover",
 };
 

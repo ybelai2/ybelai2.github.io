@@ -1,17 +1,12 @@
-# Yohannes's corner of the internet
+# Yohannes Belai — A personal field guide
 
-A personal introduction first; software projects second. Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+A dark editorial personal website about clear thinking, human behavior, self-command, and deliberate action. Real profile details and selected software projects keep the journal connected to the person behind it.
 
 **Live:** https://ybelai2.github.io/
 
-## Where things live
+Built with Next.js, TypeScript, Tailwind CSS, Framer Motion, DM Sans, and Instrument Serif. GitHub Pages serves a static export from the repository root. The Next.js source is in `site/`. Existing blog and PawPort pages remain available.
 
-- `site/` — editable Next.js source, reusable components, local fonts, and original content.
-- Root `index.html`, `_next/`, `photos/`, and metadata files — the generated static export served by the existing GitHub Pages setup.
-- Existing `blog/`, `post.html`, `pawport/`, and their assets are preserved.
-- `.pages-manifest.json` — records generated files so publishing removes only obsolete generated assets.
-
-## Run locally
+## Run and publish
 
 Use Node.js 22 or later.
 
@@ -21,65 +16,59 @@ npm ci
 npm run dev
 ```
 
-## Edit content
-
-All personal content lives in `site/src/data/`; no component edits are needed.
-
-| File | What to change |
-| --- | --- |
-| `profile.json` | Introduction, age, location, portrait, résumé, principles, and canonical site URL |
-| `socials.json` | Instagram, LinkedIn, GitHub, and email |
-| `photos.json` | Images, captions, categories, and placeholder labels |
-| `interests.json` | Interest chips and conversation starters |
-| `activities.json` | Meetup ideas and ready-to-copy opening messages |
-| `currently.json` | Current priorities and the last-updated date |
-| `projects.json` | Selected projects, stack, public source and demo links |
-| `updates.json` | Newest-first dated notes from life |
-
-### Connect Instagram
-
-Set the Instagram entry's `href` to your actual profile URL and `handle` to your handle in `socials.json`. Until then, Instagram buttons show an honest “link coming soon” notice and a working email option. No username has been guessed.
-
-### Replace photo placeholders
-
-Use your real photos. From `site/`, run `npm run photo -- /path/to/photo.jpg pickup` to create responsive WebP images. The script preserves the aspect ratio, compresses the photo, removes embedded metadata, and avoids enlarging smaller originals. The image loader selects the appropriate size for each screen.
-
-In `photos.json`, use the unsuffixed logical path (for example `/photos/pickup.webp`), descriptive `alt` text, your caption/category, and `placeholder: false`. Remove stock credit/source entries when no longer applicable. The gallery automatically derives categories.
-
-The current hero portrait is real. The three life-grid photos are visibly labeled stock placeholders. Do not remove placeholder labels while leaving stock photos in place.
-
-Update `site/public/og-image.jpg` (1200 × 630) if changing the social preview. Replace `site/public/Yohannes_Belai_Resume_2027_Grad.pdf` when the résumé changes. Keep the résumé path in `profile.json` in sync.
-
-## Publish to the existing GitHub Pages site
+To publish edits to GitHub Pages:
 
 ```sh
 cd site
-npm ci
 npm run export:pages
 cd ..
-git add site index.html _next photos .nojekyll .pages-manifest.json
-git add -u
-git status
-git commit -m "Update my personal site"
+git add -A
+git diff --cached --stat
+git commit -m "Update personal field guide"
 git push origin main
 ```
 
-Review `git status` and include any new generated metadata files listed by the build. `export:pages` builds and copies the site to the repository root; it does not push changes. The existing Pages deployment publishes commits to `main`. Editing JSON alone does not rebuild a branch-based Pages site: run `export:pages` before committing.
+Review staged files before committing. `export:pages` builds and copies static files to the repository root; it does not push. Editing source or JSON alone does not update a branch-based Pages deployment. `.pages-manifest.json` tracks generated files and limits cleanup to previously generated assets. A normal Vercel import also works with `site` as the root directory; no environment variables are required.
 
-No Actions permission changes or additional hosting accounts are required. Git history preserves the earlier site.
+## Edit content
 
-## Deploy on Vercel
+| Source | Content |
+| --- | --- |
+| `site/src/data/editorial.json` | Hero description, philosophy foundations, behavior themes, response sequence, independence cards, and About copy |
+| `site/src/data/principles.json` | All 13 principle titles and expandable paragraphs |
+| `site/src/data/notes.json` | Field notes, article slugs, categories, excerpts, paragraphs, and closing questions |
+| `site/src/data/profile.json` | Personal introduction, name, portrait path, canonical URL, résumé path, and last update |
+| `site/src/data/socials.json` | Instagram, LinkedIn, GitHub, and email |
+| `site/src/data/projects.json` | Projects, technologies, descriptions, and verified source/demo links |
 
-Import this repository and set **Root Directory** to `site`, framework to Next.js, install command to `npm ci`, and build command to `npm run build`. This project deliberately exports static HTML and has no required environment variables or backend. Change `profile.json`'s `siteUrl` if moving the canonical home to a different domain.
+All eight field notes have full, statically generated pages. Add another object to `notes.json` using the existing shape and a unique lowercase hyphenated slug. The template, reading-time estimate, related-note link, sitemap, and metadata are generated automatically. The first four entries appear as cards; remaining notes are under “More from the notebook.” The four foundational ideas and every principle are frameworks to examine, not claims of professional psychological expertise.
 
-## Verification and boundaries
+Existing legacy content files for photos, activities, interests, currently items, and life updates are retained for future use but are not rendered by this edition.
+
+## Contact behavior
+
+Instagram points to https://www.instagram.com/yohannes.belai/. Email is configured in `socials.json`.
+
+The contact form is an email-draft composer. It validates name, email, and message, shows field-specific accessible errors, and prepares an encoded `mailto:` link and a copy-message option. The visitor explicitly opens their email app to review and send. It does **not** claim to send a message, store form data, or deliver anything to a backend. There are no API keys, databases, analytics trackers, or contact-form third-party services.
+
+The integration boundary is `prepare()` in `site/src/components/contact-form.tsx`. If direct submission is added later, connect a real endpoint; validate on the server, add rate limits/spam protection, and show success only after the endpoint confirms delivery. Never embed provider secrets in this static site. Add appropriate privacy information if data collection is introduced.
+
+## Images and assets
+
+The About portrait is Yohannes's existing real photo. The hero is an AI-generated architectural study, not a location Yohannes claims to have visited. It is labeled as a study and is described in `site/PHOTO_CREDITS.md`.
+
+Responsive WebP versions live in `site/public/photos/`. The image loader selects 480, 960, or 1440-pixel files. To replace a personal photo, use the existing `npm run photo -- /path/to/photo.jpg name` helper, then set its unsuffixed path (for example `/photos/name.webp`) in the relevant content file.
+
+`site/scripts/prepare-editorial-assets.mjs [path-to-architecture.png]` prepares the architecture variants (when an input is provided), favicon, Apple touch icon, and 1200 × 630 social-sharing image. The page metadata and each article reference the local Open Graph image. Fonts are self-hosted with their license files.
+
+## Verification
 
 ```sh
 cd site
 npm run typecheck
-npm run build
+npm run export:pages
 ```
 
-Images and fonts are served locally. The page has keyboard-accessible controls, native modal focus handling, reduced-motion support, OpenGraph/Twitter metadata, a sitemap, and a 404 page. External profiles open in a new tab without popup scripts or custom app URL schemes.
+The design includes mobile navigation with Escape and outside-click dismissal, native keyboard-accessible principle accordions, full article pages, visible focus states, semantic headings, reduced-motion support, an accessible email composer, a custom 404 page, canonical URLs, Open Graph/Twitter metadata, JSON-LD, and a sitemap.
 
-InterviewOS's repository is private and is intentionally not linked as public source. SyllabiXtract is identified as a team class project. The Event Processing System is not presented as a completed project. See `site/PHOTO_CREDITS.md` for image provenance.
+No personal achievements, testimonials, experiences, or project metrics have been invented. InterviewOS remains labeled as a private repository, SyllabiXtract as a team project, and unfinished work is not presented as complete. Git history retains the previous design.

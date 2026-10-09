@@ -1,0 +1,99 @@
+{
+  "hero": {
+    "eyebrow": "A PERSONAL FIELD GUIDE · YOHANNES BELAI",
+    "title": "See what others",
+    "accent": "overlook.",
+    "description": "An exploration of human behavior, strategic thinking, emotional discipline, and the quiet advantages of seeing things as they are.",
+    "mantra": "Observe carefully. Think independently. Act deliberately."
+  },
+  "philosophy": [
+    {
+      "title": "Perception",
+      "text": "Look beyond appearances. Examine incentives, context, repeated behavior, and the forces shaping decisions."
+    },
+    {
+      "title": "Self-mastery",
+      "text": "Your reactions are yours to govern. Emotional discipline creates the space between what happens and what you choose to do."
+    },
+    {
+      "title": "Strategic independence",
+      "text": "Build skills, relationships, resources, and alternatives before circumstances force your hand."
+    },
+    {
+      "title": "Deliberate action",
+      "text": "Not every disagreement requires a response. Not every opportunity deserves pursuit. Learn to distinguish movement from progress."
+    }
+  ],
+  "behavior": [
+    {
+      "title": "Incentives",
+      "question": "What rewards a decision?",
+      "text": "Look at what a situation encourages: security, approval, convenience, or something less obvious. An incentive is a clue, not a verdict."
+    },
+    {
+      "title": "Pressure",
+      "question": "What changes under strain?",
+      "text": "Constraints can change how someone behaves. Understand the circumstances before deciding what a difficult moment means."
+    },
+    {
+      "title": "Patterns",
+      "question": "What repeats over time?",
+      "text": "Repeated choices offer more evidence than a single promise or mistake. Stay willing to revise your interpretation."
+    },
+    {
+      "title": "Priorities",
+      "question": "What receives consistent care?",
+      "text": "Notice where attention, time, and effort go. What someone protects can reveal what matters to them."
+    }
+  ],
+  "response": [
+    {
+      "title": "Observe",
+      "text": "Separate what happened from the story you tell about it.",
+      "prompt": "What do I actually know?"
+    },
+    {
+      "title": "Interpret",
+      "text": "Consider context and more than one plausible explanation.",
+      "prompt": "What else could this mean?"
+    },
+    {
+      "title": "Evaluate",
+      "text": "Weigh your values, the consequences, and what needs attention.",
+      "prompt": "What matters here?"
+    },
+    {
+      "title": "Respond",
+      "text": "Choose an action you can stand behind. Sometimes that means waiting.",
+      "prompt": "What is a useful next step?"
+    }
+  ],
+  "independence": [
+    {
+      "title": "Capability",
+      "icon": "code",
+      "text": "Develop skills that remain useful across changing circumstances."
+    },
+    {
+      "title": "Resilience",
+      "icon": "compass",
+      "text": "Build resources that help you withstand uncertainty."
+    },
+    {
+      "title": "Relationships",
+      "icon": "message",
+      "text": "Invest in mutual trust before you need a favor."
+    },
+    {
+      "title": "Optionality",
+      "icon": "globe",
+      "text": "Create alternatives so a single outcome does not control your future."
+    }
+  ],
+  "about": {
+    "title": "A work in progress.",
+    "opening": "I’m Yohannes. Still learning to see clearly.",
+    "bio": "I’m an Ethiopian-American Computer Science student at Towson, based in Maryland. I like building software, playing pickup, and conversations that go somewhere. My Orthodox Christian faith keeps me grounded.",
+    "purpose": "This is a place for ideas worth examining, patterns worth questioning, and principles I’m learning to put into practice. The aim is simple: understand more, react less, and make better decisions."
+  }
+}
