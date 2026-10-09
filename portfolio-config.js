@@ -5,11 +5,11 @@ window.PORTFOLIO_CONFIG = {
     {name:"SyllabiXtract",description:"A team-built class project that brings syllabus deadlines and assignments into one calendar.",technologies:["Spring Boot","React","PostgreSQL"],github:null,demo:null}
   ],
   skills: {
-    "Languages":["Java","Python","SQL"],
-    "Backend and APIs":["Spring Boot","Node.js","REST APIs","Authentication and Authorization"],
-    "Frontend":["React"],
-    "Databases":["PostgreSQL","Supabase","NoSQL databases"],
-    "Cloud and Tools":["AWS","Docker","Git"]
+    "Languages":["Java","Python","JavaScript","TypeScript","SQL"],
+    "Backend Engineering":["Spring Boot","Spring Security","JPA/Hibernate","Node.js","Express","REST APIs"],
+    "Databases and Data Management":["PostgreSQL","MongoDB","SQLite","Flyway","Relational data modeling"],
+    "Testing and Development Tools":["JUnit","Spring MockMvc","Maven","GitHub Actions","Docker","Git","GitHub"],
+    "Cloud and Frontend":["AWS Lambda","Amazon S3","Amazon SQS","React","Vite","Tailwind CSS","Render","Vercel"]
   }
 };
 // To add verified SyllabiXtract links, replace the two null values.
