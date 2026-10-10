@@ -1,10 +1,10 @@
-# Yohannes Belai — A personal field guide
+# Yohannes Belai — Software Engineering Portfolio
 
-A dark editorial personal website about clear thinking, human behavior, self-command, and deliberate action. Real profile details and selected software projects keep the journal connected to the person behind it.
+A recruiter-focused portfolio with a calm, light, spacecraft-interior-inspired visual language. It includes technical experience, education, projects, an authentic photo, and a small personal section.
 
 **Live:** https://ybelai2.github.io/
 
-Built with Next.js, TypeScript, Tailwind CSS, Framer Motion, DM Sans, and Instrument Serif. GitHub Pages serves a static export from the repository root. The Next.js source is in `site/`. Existing blog and PawPort pages remain available.
+**Published homepage:** `index.html` at the repository root, styled by `portfolio-2026.css` and populated with `portfolio-config.js` + `portfolio.js` (no build required). **Legacy notes / additional pages:** Next.js source in `site/`, statically exported to GitHub Pages. The publish helper deliberately preserves the root homepage.
 
 ## Run and publish
 
@@ -16,7 +16,7 @@ npm ci
 npm run dev
 ```
 
-To publish edits to GitHub Pages:
+To rebuild the legacy notes pages while preserving the portfolio homepage:
 
 ```sh
 cd site
@@ -28,9 +28,15 @@ git commit -m "Update personal field guide"
 git push origin main
 ```
 
-Review staged files before committing. `export:pages` builds and copies static files to the repository root; it does not push. Editing source or JSON alone does not update a branch-based Pages deployment. `.pages-manifest.json` tracks generated files and limits cleanup to previously generated assets. A normal Vercel import also works with `site` as the root directory; no environment variables are required.
+Review staged files before committing. `export:pages` builds and copies static files to the repository root; it does not push. Editing the root `index.html`, `portfolio-2026.css`, `portfolio-config.js`, or `portfolio.js` and pushing to `main` updates the portfolio homepage directly. Changes to the `site/` Next.js source still require `export:pages`. `.pages-manifest.json` tracks generated files and limits cleanup to previously generated assets. A normal Vercel import also works with `site` as the root directory; no environment variables are required.
 
-## Edit content
+## Update the current portfolio
+
+Edit `portfolio-config.js` for projects, skills, the personal introduction, current updates, interests, and journal notes. The personal introduction is intentionally unfilled, and the journal intentionally contains no invented entries. The real résumé PDF is linked from the hero. The portrait is `/assets/images/yohannes-portrait (1).webp`. The homepage contact links are configured directly in `index.html`.
+
+The older Next.js content data below remains for the legacy pages and does **not** control the published portfolio homepage.
+
+## Edit legacy Next.js content
 
 | Source | Content |
 | --- | --- |

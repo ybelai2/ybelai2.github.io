@@ -10,6 +10,15 @@ window.PORTFOLIO_CONFIG = {
     "Databases and Data Management":["PostgreSQL","MongoDB","SQLite","Flyway","Relational data modeling"],
     "Testing and Development Tools":["JUnit","Spring MockMvc","Maven","GitHub Actions","Docker","Git","GitHub"],
     "Cloud and Frontend":["AWS Lambda","Amazon S3","Amazon SQS","React","Vite","Tailwind CSS","Render","Vercel"]
+  },
+  personal: {
+    intro: null, // Add two or three sentences in Yohannes's own words when provided.
+    now: [
+      {date:"Oct 2026",text:"Completing senior Computer Science coursework at Towson University."},
+      {date:"Oct 2026",text:"Exploring backend engineering, cloud systems, and infrastructure."}
+    ],
+    interests: ["Basketball","Software projects","Fitness","Orthodox Christianity","Ethiopian culture","Good conversations"],
+    notes: [] // {date:"YYYY-MM-DD",title:"...",text:"..."}; newest first.
   }
 };
 // To add verified SyllabiXtract links, replace the two null values.

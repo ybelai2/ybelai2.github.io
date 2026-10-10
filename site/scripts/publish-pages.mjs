@@ -39,9 +39,13 @@ try {
   if (error.code !== "ENOENT") throw error;
 }
 const files = await listFiles(output);
+// The live portfolio homepage is maintained at repository-root index.html.
+// Keep it intact when updating the legacy Next.js notes and other static exports.
+const preserveAtRoot = new Set(["index.html"]);
 for (const file of previous)
-  if (!files.includes(file)) await rm(safePath(file), { force: true });
+  if (!files.includes(file) && !preserveAtRoot.has(file)) await rm(safePath(file), { force: true });
 for (const file of files) {
+  if (preserveAtRoot.has(file)) continue;
   const target = safePath(file);
   await mkdir(path.dirname(target), { recursive: true });
   await cp(path.join(output, file), target);
