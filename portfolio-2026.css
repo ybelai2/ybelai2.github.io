@@ -33,13 +33,6 @@ a:focus-visible,button:focus-visible{outline:3px solid #2375a9;outline-offset:4p
 .button.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
 .button:hover{transform:translateY(-2px);border-color:var(--blue);background:#e2edf3;color:var(--navy)}
 .button.primary:hover{background:#2b5271;color:#fff}
-.hero-visual{position:relative;width:100%;max-width:440px;justify-self:end;padding:28px 18px 17px}
-.hero-visual:before,.hero-visual:after{content:"";position:absolute;inset:5px -12px 18px;border:1px solid #90b5ce71;border-radius:250px 250px 36px 36px;pointer-events:none}
-.hero-visual:after{inset:-20px -36px -8px;border-color:#9bbcd047;z-index:-1}
-.hero-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 35%;border-radius:220px 220px 26px 26px;filter:saturate(.85);box-shadow:0 24px 80px #203e5540;background:#d1e0e9}
-.portrait-caption{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#526d80;margin-top:16px;font-weight:700}
-.portrait-caption .signal{display:flex;align-items:center;gap:8px}
-.portrait-caption .signal:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px #b78a4320}
 .section{padding:86px 0;border-top:1px solid var(--line);scroll-margin-top:100px}
 .sectionhead{display:flex;gap:22px;align-items:baseline;margin-bottom:37px}
 .number{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;width:34px;height:34px;flex:0 0 34px;border:1px solid #bdcfda;font-size:11px;color:var(--blue);font-weight:750}
