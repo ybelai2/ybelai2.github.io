@@ -286,7 +286,8 @@ h1{font-size:clamp(4.3rem,8.8vw,8.4rem);font-weight:720;letter-spacing:-.095em;l
   html{scroll-behavior:auto;scroll-snap-type:none}
   
   
-  .button,.project-card,.plan-card,.topic-button,.reel-rail-dot{transition:none}
+  .button,.project-card,.plan-card,.topic-button,.reel-rail-dot,.reel-rail-label{transition:none}
+  .button:hover,.project-card:hover,.plan-card:hover,.reel-rail-label{transform:none}
 }
 
 /* Keep all interactive header/footer links finger-friendly on phones. */
