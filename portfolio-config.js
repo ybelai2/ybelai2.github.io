@@ -12,7 +12,7 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     portrait: "/assets/images/yohannes-blue-sweatshirt.webp",
     portraitAlt: "Yohannes Belai in a blue sweatshirt",
     introduction: "I'm a Computer Science senior at Towson, and I build study and interview-prep tools.",
-    smallPrint: "Ethiopian-American · Maryland / DMV"
+    smallPrint: "Ethiopian-American"
   },
   socials: [
     {id:"instagram",label:"Instagram",href:"https://www.instagram.com/yohannes.belai/"},
@@ -28,16 +28,16 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     {date:"Your update",label:"Currently watching",text:"Not added yet. What are you watching?",placeholder:true}
   ],
   interests: [
-    {icon:"📍",label:"Maryland / DMV"},
-    {icon:"🎓",label:"CS at Towson"},
-    {icon:"🏀",label:"Pickup basketball"},
-    {icon:"⚽",label:"Watching soccer"},
-    {icon:"📚",label:"Sci-fi and fiction"},
-    {icon:"🎧",label:"Philosophy audiobooks and podcasts"},
-    {icon:"🇪🇹",label:"Ethiopian-American"},
-    {icon:"☦️",label:"Orthodox Christian"},
-    {icon:"🏋️",label:"Gym"},
-    {icon:"☕",label:"Long conversations"}
+    {icon:"",label:"Maryland / DMV"},
+    {icon:"",label:"CS at Towson"},
+    {icon:"",label:"Pickup basketball"},
+    {icon:"",label:"Watching soccer"},
+    {icon:"",label:"Sci-fi and fiction"},
+    {icon:"",label:"Philosophy audiobooks and podcasts"},
+    {icon:"",label:"Ethiopian-American"},
+    {icon:"",label:"Orthodox Christian"},
+    {icon:"",label:"Gym"},
+    {icon:"",label:"Long conversations"}
   ],
   conversationHooks: [
     "I play pickup and follow the NBA. Have you watched a good game lately?",
@@ -60,23 +60,23 @@ window.PORTFOLIO_CONFIG = Object.freeze({
   // Photo slots are intentionally empty. Add src (e.g., "/photos/your-real-photo.webp")
   // and set placeholder:false only after uploading your own photo to the repository.
   photos: [
-    {id:"basketball",category:"Basketball",caption:"Pickup photo not added yet.",src:null,alt:"",placeholder:true},
-    {id:"soccer",category:"Soccer",caption:"Soccer photo not added yet.",src:null,alt:"",placeholder:true},
-    {id:"reading",category:"Reading",caption:"Reading photo not added yet.",src:null,alt:"",placeholder:true},
-    {id:"friends",category:"Friends",caption:"Photo with friends not added yet.",src:null,alt:"",placeholder:true},
-    {id:"dmv",category:"Around the DMV",caption:"DMV photo not added yet.",src:null,alt:"",placeholder:true},
-    {id:"culture",category:"Faith & culture",caption:"Faith and culture photo not added yet.",src:null,alt:"",placeholder:true},
-    {id:"projects",category:"Projects",caption:"Project photo not added yet.",src:null,alt:"",placeholder:true},
-    {id:"everyday",category:"Everyday",caption:"Everyday photo not added yet.",src:null,alt:"",placeholder:true}
+    {id:"basketball",category:"Basketball",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"soccer",category:"Soccer",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"reading",category:"Reading",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"friends",category:"Friends",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"dmv",category:"Around the DMV",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"culture",category:"Faith & culture",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"projects",category:"Projects",caption:"Photo to come",src:null,alt:"",placeholder:true},
+    {id:"everyday",category:"Everyday",caption:"Photo to come",src:null,alt:"",placeholder:true}
   ],
   plans: [
-    {icon:"🏀",title:"Play basketball",detail:"Pick a court and play."},
-    {icon:"⚽",title:"Watch a match",detail:"Watch a soccer match together."},
-    {icon:"☕",title:"Grab coffee",detail:"Coffee somewhere in the DMV."},
-    {icon:"💻",title:"Build something",detail:"Bring an app idea to work on."},
-    {icon:"🍜",title:"Try a restaurant",detail:"Send me a restaurant recommendation."},
-    {icon:"📖",title:"Talk faith or philosophy",detail:"Talk about church or a philosophy podcast."},
-    {icon:"📚",title:"Study or work session",detail:"Bring coursework or a project."}
+    {icon:"",title:"Play basketball",detail:"Pick a court and play."},
+    {icon:"",title:"Watch a match",detail:"Watch a soccer match together."},
+    {icon:"",title:"Grab coffee",detail:"Coffee somewhere in the DMV."},
+    {icon:"",title:"Build something",detail:"Bring an app idea to work on."},
+    {icon:"",title:"Try a restaurant",detail:"Send me a restaurant recommendation."},
+    {icon:"",title:"Talk faith or philosophy",detail:"Talk about church or a philosophy podcast."},
+    {icon:"",title:"Study or work session",detail:"Bring coursework or a project."}
   ],
   projects: [
     {
@@ -112,8 +112,8 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     }
   ],
   experience: [
-    {role:"Contract Software Engineer, AI Training",organization:"Alignerr",dates:"Aug 2025 – present",location:"Remote. AWS Lambda, SQS, and S3 data pipelines; Java refactoring for AI training workflows."},
-    {role:"Volunteer Software Development Instructor & Technical Mentor",organization:"HBKY EOTC",dates:"Jun – Jul 2026",location:"Mentored 20+ students building mobile apps with external AI APIs"}
+    {role:"Contract Software Engineer, AI Training",organization:"Alignerr",dates:"Aug 2025 - present",location:"Remote. AWS Lambda, SQS, and S3 data pipelines; Java refactoring for AI training workflows."},
+    {role:"Volunteer Software Development Instructor & Technical Mentor",organization:"HBKY EOTC",dates:"Jun - Jul 2026",location:"Mentored 20+ students building mobile apps with external AI APIs"}
   ],
   principles: [
     "Faith: note to write in my own words.",

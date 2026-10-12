@@ -1,4 +1,4 @@
-/* Yohannes Belai — static site renderer; edit portfolio-config.js for content. */
+/* Yohannes Belai: static site renderer; edit portfolio-config.js for content. */
 (function () {
   "use strict";
   const data = window.PORTFOLIO_CONFIG;
@@ -51,7 +51,7 @@
     heroText.textContent = data.profile.introduction;
   const meta = document.querySelector(".hero-meta");
   if (meta && data.profile?.location && data.profile?.age)
-    meta.textContent = data.profile.age + " · " + data.profile.location;
+    meta.textContent = data.profile.age + ", " + data.profile.location;
   const location = document.querySelector(".header-location");
   if (location && data.profile?.location) location.textContent = data.profile.location;
 
@@ -72,7 +72,6 @@
       const title = el("strong", "now-item-label", item.label);
       const date = el("span", "now-item-date", item.date);
       const value = el("div", "now-item-value", item.text);
-      if (item.placeholder) value.appendChild(el("span", "placeholder-flag", "TO FILL"));
       attach(left, title, date);
       attach(li, left, value);
       nowList.appendChild(li);
@@ -85,9 +84,7 @@
     interests.replaceChildren();
     for (const item of data.interests || []) {
       const card = el("div", "interest-chip");
-      const icon = el("span", "interest-icon", item.icon);
-      icon.setAttribute("aria-hidden", "true");
-      attach(card, icon, el("span", "interest-label", item.label));
+      attach(card, el("span", "interest-label", item.label));
       interests.appendChild(card);
     }
   }
@@ -127,7 +124,7 @@
       if (!selectedQuestion) return;
       try {
         await navigator.clipboard.writeText(selectedQuestion);
-        copyButton.textContent = "Copied ✓";
+        copyButton.textContent = "Copied";
       } catch {
         copyButton.textContent = "Select the question above to copy";
       }
@@ -152,9 +149,7 @@
         stage.appendChild(img);
       } else {
         const inner = el("div", "photo-placeholder-content");
-        const icon = el("span", "photo-placeholder-icon", "＋");
-        icon.setAttribute("aria-hidden", "true");
-        attach(inner, icon, el("strong", "", item.category), el("span", "", "YOUR PHOTO HERE"));
+        attach(inner, el("span", "", "Photo to come"));
         stage.appendChild(inner);
       }
       const caption = el("figcaption");
@@ -170,9 +165,7 @@
     plans.replaceChildren();
     for (const item of data.plans || []) {
       const article = el("article", "plan-card");
-      const icon = el("span", "plan-icon", item.icon);
-      icon.setAttribute("aria-hidden", "true");
-      attach(article, icon, el("h3", "", item.title), el("p", "", item.detail));
+      attach(article, el("h3", "", item.title), el("p", "", item.detail));
       plans.appendChild(article);
     }
   }
@@ -196,7 +189,7 @@
       if (item.live) links.appendChild(link(item.live, "Live demo ↗"));
       if (item.note) links.appendChild(el("span", "project-note", item.note));
       attach(article,
-        el("span", "project-index", "SELECTED WORK / 0" + (index + 1)),
+        el("span", "project-index", "Project " + (index + 1)),
         el("p", "project-eyebrow", item.eyebrow),
         el("h3", "", item.name),
         story, tech, links
@@ -227,23 +220,5 @@
       principles.appendChild(el("li", "", item));
   }
 
-  // Gentle reveal animations, without hiding content for reduced-motion users.
-  if ("IntersectionObserver" in window &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const animated = document.querySelectorAll(
-      ".chapter-heading, .now-card, .interest-chip, .conversation-hooks, .ask-card, " +
-      ".photo-card, .plan-card, .project-card, .experience-row, .principles-list li"
-    );
-    animated.forEach((item) => item.setAttribute("data-reveal", ""));
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      }
-    }, { rootMargin: "0px 0px 45px 0px", threshold: 0.04 });
-    document.documentElement.classList.add("motion-ready");
-    animated.forEach((item) => observer.observe(item));
-  }
+
 })();
