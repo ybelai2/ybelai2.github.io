@@ -11,7 +11,7 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     graduation: "May 2027",
     portrait: "/assets/images/yohannes-blue-sweatshirt.webp",
     portraitAlt: "Yohannes Belai in a blue sweatshirt",
-    introduction: "Computer Science student, builder. Trying to live an interesting life and meet good people along the way.",
+    introduction: "I'm a Computer Science senior at Towson, and I build study and interview-prep tools.",
     smallPrint: "Ethiopian-American · Maryland / DMV"
   },
   socials: [
@@ -22,68 +22,68 @@ window.PORTFOLIO_CONFIG = Object.freeze({
   ],
   resume: "/Yohannes_Belai_Resume_2027_Grad.pdf",
   now: [
-    {date:"Oct 2026",label:"These days",text:"Finishing senior Computer Science coursework at Towson University."},
-    {date:"Oct 2026",label:"Building",text:"Exploring ideas through software projects."},
-    {date:"Your update",label:"Currently reading",text:"Add the book you're reading.",placeholder:true},
-    {date:"Your update",label:"Currently watching",text:"Add a show, film, or soccer match.",placeholder:true}
+    {date:"Oct 2026",label:"Coursework",text:"Finishing my Computer Science degree at Towson. Expected graduation: May 2027."},
+    {date:"Oct 2026",label:"Projects",text:"Drill turns class PowerPoints into flashcards and quizzes. InterviewOS uses a résumé for interview prep."},
+    {date:"Your update",label:"Currently reading",text:"Not added yet. What are you reading?",placeholder:true},
+    {date:"Your update",label:"Currently watching",text:"Not added yet. What are you watching?",placeholder:true}
   ],
   interests: [
     {icon:"📍",label:"Maryland / DMV"},
     {icon:"🎓",label:"CS at Towson"},
-    {icon:"🏀",label:"Always down for pickup"},
+    {icon:"🏀",label:"Pickup basketball"},
     {icon:"⚽",label:"Watching soccer"},
     {icon:"📚",label:"Sci-fi and fiction"},
-    {icon:"🎧",label:"Philosophy on audio"},
+    {icon:"🎧",label:"Philosophy audiobooks and podcasts"},
     {icon:"🇪🇹",label:"Ethiopian-American"},
     {icon:"☦️",label:"Orthodox Christian"},
     {icon:"🏋️",label:"Gym"},
-    {icon:"☕",label:"Conversations over small talk"}
+    {icon:"☕",label:"Long conversations"}
   ],
   conversationHooks: [
-    "I can talk basketball for an unreasonable amount of time.",
-    "Read anything good lately? Sci-fi is my weakness.",
-    "Tell me your hottest soccer take. I'll argue back.",
-    "Got a philosophy podcast or audiobook I should hear?"
+    "I play pickup and follow the NBA. Have you watched a good game lately?",
+    "I read sci-fi and fiction. Send me a book recommendation.",
+    "I watch soccer regularly. Which match should I watch next?",
+    "I listen to philosophy podcasts and audiobooks. What should I try next?"
   ],
   starters: [
-    {topic:"Basketball",question:"What's your most controversial basketball take?"},
-    {topic:"Soccer",question:"What's one soccer opinion you'd defend to the end?"},
-    {topic:"Sci-fi & fiction",question:"Which fictional world would you actually want to live in?"},
-    {topic:"Philosophy",question:"What's a philosophy podcast or audiobook worth hearing?"},
-    {topic:"Ethiopia",question:"What's one part of Ethiopian culture you think more people should know?"},
-    {topic:"Faith",question:"Has a faith conversation ever changed your mind about something?"},
-    {topic:"Software",question:"What everyday problem would you want an app to fix?"},
-    {topic:"The DMV",question:"Where in the DMV should I go next?"},
-    {topic:"Gym",question:"What's the one exercise you'd never skip?"},
-    {topic:"Life in your 20s",question:"What's something your twenties are teaching you?"}
+    {topic:"Basketball",question:"What NBA game have you enjoyed lately?"},
+    {topic:"Soccer",question:"What soccer match would you recommend watching?"},
+    {topic:"Sci-fi & fiction",question:"What sci-fi or fiction book did you finish recently?"},
+    {topic:"Philosophy",question:"Which philosophy podcast or audiobook would you recommend?"},
+    {topic:"Ethiopia",question:"Have you tried Ethiopian food before?"},
+    {topic:"Faith",question:"Have you ever been to an Orthodox church service?"},
+    {topic:"Software",question:"What app do you use most often?"},
+    {topic:"The DMV",question:"Do you know a good coffee shop in the DMV?"},
+    {topic:"Gym",question:"Do you lift, play a sport, or both?"},
+    {topic:"Life in your 20s",question:"What has changed most for you in your twenties?"}
   ],
   // Photo slots are intentionally empty. Add src (e.g., "/photos/your-real-photo.webp")
   // and set placeholder:false only after uploading your own photo to the repository.
   photos: [
-    {id:"basketball",category:"Basketball",caption:"A moment from the court.",src:null,alt:"",placeholder:true},
-    {id:"soccer",category:"Soccer",caption:"Match-day memories.",src:null,alt:"",placeholder:true},
-    {id:"reading",category:"Reading",caption:"A good book, eventually.",src:null,alt:"",placeholder:true},
-    {id:"friends",category:"Friends",caption:"A moment worth keeping.",src:null,alt:"",placeholder:true},
-    {id:"dmv",category:"Around the DMV",caption:"One of my favorite local spots.",src:null,alt:"",placeholder:true},
-    {id:"culture",category:"Faith & culture",caption:"A moment from my roots.",src:null,alt:"",placeholder:true},
-    {id:"projects",category:"Projects",caption:"Something in progress.",src:null,alt:"",placeholder:true},
-    {id:"everyday",category:"Everyday",caption:"The ordinary stuff.",src:null,alt:"",placeholder:true}
+    {id:"basketball",category:"Basketball",caption:"Pickup photo not added yet.",src:null,alt:"",placeholder:true},
+    {id:"soccer",category:"Soccer",caption:"Soccer photo not added yet.",src:null,alt:"",placeholder:true},
+    {id:"reading",category:"Reading",caption:"Reading photo not added yet.",src:null,alt:"",placeholder:true},
+    {id:"friends",category:"Friends",caption:"Photo with friends not added yet.",src:null,alt:"",placeholder:true},
+    {id:"dmv",category:"Around the DMV",caption:"DMV photo not added yet.",src:null,alt:"",placeholder:true},
+    {id:"culture",category:"Faith & culture",caption:"Faith and culture photo not added yet.",src:null,alt:"",placeholder:true},
+    {id:"projects",category:"Projects",caption:"Project photo not added yet.",src:null,alt:"",placeholder:true},
+    {id:"everyday",category:"Everyday",caption:"Everyday photo not added yet.",src:null,alt:"",placeholder:true}
   ],
   plans: [
-    {icon:"🏀",title:"Play basketball",detail:"A pickup run sounds good."},
-    {icon:"⚽",title:"Watch a match",detail:"A soccer game and a few takes."},
-    {icon:"☕",title:"Grab coffee",detail:"Something simple, good conversation."},
-    {icon:"💻",title:"Build something",detail:"An idea and a laptop."},
-    {icon:"🍜",title:"Try a restaurant",detail:"DMV recommendations welcome."},
-    {icon:"📖",title:"Talk faith or philosophy",detail:"A conversation with some substance."},
-    {icon:"📚",title:"Study or work session",detail:"Get a few things done together."}
+    {icon:"🏀",title:"Play basketball",detail:"Pick a court and play."},
+    {icon:"⚽",title:"Watch a match",detail:"Watch a soccer match together."},
+    {icon:"☕",title:"Grab coffee",detail:"Coffee somewhere in the DMV."},
+    {icon:"💻",title:"Build something",detail:"Bring an app idea to work on."},
+    {icon:"🍜",title:"Try a restaurant",detail:"Send me a restaurant recommendation."},
+    {icon:"📖",title:"Talk faith or philosophy",detail:"Talk about church or a philosophy podcast."},
+    {icon:"📚",title:"Study or work session",detail:"Bring coursework or a project."}
   ],
   projects: [
     {
       name:"InterviewOS",
       eyebrow:"Interview preparation",
-      problem:"Starting interview preparation from a résumé.",
-      approach:"Turns a résumé into focused interview prep.",
+      problem:"Preparing for interviews using a résumé.",
+      approach:"Organizes interview preparation around résumé details.",
       // Stack retained from the existing portfolio; edit as your project changes.
       technologies:["React","PostgreSQL","Supabase"],
       github:null,
@@ -93,8 +93,8 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     {
       name:"Drill",
       eyebrow:"Study tool",
-      problem:"Turning class slides into something useful to study.",
-      approach:"Converts PowerPoints into flashcards and quizzes.",
+      problem:"Reviewing material spread across PowerPoint slides.",
+      approach:"Turns class PowerPoints into flashcards and quizzes.",
       technologies:["Java","Spring Boot","React"],
       github:"https://github.com/ybelai2/drillapi",
       live:"https://study-cs.vercel.app/",
@@ -103,21 +103,21 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     {
       name:"SyllabiXtract",
       eyebrow:"Team class project",
-      problem:"Syllabus deadlines scattered across classes.",
-      approach:"Brings those dates into one calendar.",
+      problem:"Deadlines are spread across multiple syllabi.",
+      approach:"Pulls deadlines from several class syllabi into one calendar.",
       technologies:["Spring Boot","React","PostgreSQL"],
       github:null,
       live:null,
-      note:"Links available once confirmed"
+      note:"No public link added yet"
     }
   ],
   experience: [
-    {role:"Contract Software Engineer, AI Training",organization:"Alignerr",dates:"Aug 2025 – present",location:"Remote"},
+    {role:"Contract Software Engineer, AI Training",organization:"Alignerr",dates:"Aug 2025 – present",location:"Remote. AWS Lambda, SQS, and S3 data pipelines; Java refactoring for AI training workflows."},
     {role:"Volunteer Software Development Instructor & Technical Mentor",organization:"HBKY EOTC",dates:"Jun – Jul 2026",location:"Mentored 20+ students building mobile apps with external AI APIs"}
   ],
   principles: [
-    "Faith over mood.",
-    "Consistency over intensity.",
-    "Build more than you consume."
+    "Faith: note to write in my own words.",
+    "Habits: note to write in my own words.",
+    "Building software: note to write in my own words."
   ]
 });
