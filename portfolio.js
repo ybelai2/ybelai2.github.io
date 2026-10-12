@@ -28,6 +28,33 @@
     return a;
   };
 
+
+  // Keep publicly visible links and the hero introduction editable in one file.
+  const socialMap = new Map((data.socials || []).map(s => [s.id, s]));
+  for (const anchor of document.querySelectorAll("a[data-social]")) {
+    const social = socialMap.get(anchor.dataset.social);
+    if (!social || !social.href) continue;
+    if (!/^(https:\/\/|mailto:)/.test(social.href)) continue;
+    const current = anchor.getAttribute("href") || "";
+    const suffix = anchor.dataset.social === "email" && current.includes("?")
+      ? current.slice(current.indexOf("?")) : "";
+    anchor.href = social.href + suffix;
+    if (social.href.startsWith("https://")) {
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+    }
+  }
+  for (const anchor of document.querySelectorAll("a[data-resume]"))
+    if (data.resume && data.resume.startsWith("/")) anchor.href = data.resume;
+  const heroText = document.querySelector(".hero-lede");
+  if (heroText && data.profile?.introduction)
+    heroText.textContent = data.profile.introduction;
+  const meta = document.querySelector(".hero-meta");
+  if (meta && data.profile?.location && data.profile?.age)
+    meta.textContent = data.profile.age + " · " + data.profile.location;
+  const location = document.querySelector(".header-location");
+  if (location && data.profile?.location) location.textContent = data.profile.location;
+
   // The hero portrait is the real photo supplied by Yohannes.
   const portrait = byId("hero-portrait");
   if (portrait && data.profile?.portrait) {
