@@ -153,7 +153,8 @@
         stage.appendChild(inner);
       }
       const caption = el("figcaption");
-      attach(caption, el("strong", "", item.category), el("span", "", item.caption));
+      caption.appendChild(el("strong", "", item.category));
+      if (hasRealPhoto && item.caption) caption.appendChild(el("span", "", item.caption));
       attach(figure, stage, caption);
       photos.appendChild(figure);
     }
