@@ -288,3 +288,6 @@ h1{font-size:clamp(4.3rem,8.8vw,8.4rem);font-weight:720;letter-spacing:-.095em;l
   .motion-ready [data-reveal]{opacity:1;transform:none;transition:none}
   .button,.project-card,.plan-card,.topic-button,.reel-rail-dot{transition:none}
 }
+
+/* Keep all interactive header/footer links finger-friendly on phones. */
+.wordmark,.footer a{display:inline-flex;align-items:center;min-height:44px}
