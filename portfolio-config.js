@@ -9,9 +9,9 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     location: "Maryland / DMV",
     school: "Towson University",
     graduation: "May 2027",
-    portrait: "/assets/images/yohannes-profile-formal.webp",
-    portraitAlt: "Yohannes Belai in a navy suit",
-    introduction: "Computer Science student, builder, pickup basketball player. Trying to live an interesting life and meet good people along the way.",
+    portrait: "/assets/images/yohannes-blue-sweatshirt.webp",
+    portraitAlt: "Yohannes Belai in a blue sweatshirt",
+    introduction: "Computer Science student, builder. Trying to live an interesting life and meet good people along the way.",
     smallPrint: "Ethiopian-American · Maryland / DMV"
   },
   socials: [

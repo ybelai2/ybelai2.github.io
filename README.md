@@ -13,7 +13,7 @@ A personal website for people coming from Instagram, with a small, deliberate se
 | `portfolio-config.js` | Editable projects, now, interests, social links, photos, plans, questions and roles |
 | `portfolio.js` | Safe client-side rendering and interaction for those content lists |
 | `reel-navigation.js` | Generated chapter counter, progress, desktop rail and mobile up/down controls |
-| `assets/images/yohannes-hero.webp` | Existing supplied portrait; replace this file with your preferred real portrait |
+| `assets/images/yohannes-blue-sweatshirt.webp` | Newly supplied casual portrait in a blue sweatshirt; replace it when you like |
 | `og-image.jpg` | 1200×630 share image — replace with a new personal share design when ready |
 | `Yohannes_Belai_Resume_2027_Grad.pdf` | Existing résumé PDF |
 
