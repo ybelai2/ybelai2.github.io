@@ -50,8 +50,8 @@
   if (heroText && data.profile?.introduction)
     heroText.textContent = data.profile.introduction;
   const meta = document.querySelector(".hero-meta");
-  if (meta && data.profile?.location && data.profile?.age)
-    meta.textContent = data.profile.age + ", " + data.profile.location;
+  if (meta && data.profile?.location)
+    meta.textContent = data.profile.location;
   const location = document.querySelector(".header-location");
   if (location && data.profile?.location) location.textContent = data.profile.location;
 

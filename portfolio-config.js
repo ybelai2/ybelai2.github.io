@@ -5,7 +5,6 @@ window.PORTFOLIO_CONFIG = Object.freeze({
   profile: {
     name: "Yohannes Belai",
     firstName: "Yohannes",
-    age: 23,
     location: "Maryland / DMV",
     school: "Towson University",
     graduation: "May 2027",
