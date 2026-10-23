@@ -3,7 +3,7 @@
 import { useState } from "react";
 import activities from "@/data/activities.json";
 import { Icon } from "./icon";
-import { InstagramLink } from "./social-links";
+import { EmailLink } from "./social-links";
 import { CopyButton } from "./conversation-starter";
 
 export function Activities() {
@@ -45,11 +45,11 @@ export function Activities() {
           <p>“{selected.opener}”</p>
           <CopyButton key={selected.id} text={selected.opener} />
         </div>
-        <InstagramLink className="button button-dark" opener={selected.opener}>
-          <Icon name="instagram" size={18} />
-          Message me on Instagram
+        <EmailLink className="button button-dark" opener={selected.opener}>
+          <Icon name="email" size={18} />
+          Send me an email
           <Icon name="arrowUpRight" size={17} />
-        </InstagramLink>
+        </EmailLink>
       </div>
     </>
   );

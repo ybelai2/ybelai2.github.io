@@ -2,7 +2,7 @@
 
 **Live:** https://ybelai2.github.io/
 
-A personal website for people coming from Instagram, with a small, deliberate section for software projects and professional experience. It uses only **HTML, CSS, and vanilla JavaScript**—no framework, bundler, server, or build command.
+A personal portfolio featuring software projects and professional experience, with LinkedIn, GitHub, and email for professional contact. It uses only **HTML, CSS, and vanilla JavaScript**—no framework, bundler, server, or build command.
 
 ## Files that control the live home page
 
@@ -45,7 +45,7 @@ Edit `portfolio-config.js`, save, commit and push to `main`. There is no build s
 - **Low-pressure plans:** edit `plans`.
 - **Projects:** edit `projects`. InterviewOS stays private. SyllabiXtract source/demo links stay unset until verified. Campus Events API and GitHub Developer Insights Dashboard are intentionally omitted.
 - **Experience:** two short entries. The résumé carries the full descriptions.
-- **Socials:** `socials` lists all four confirmed profiles. Links on the primary hero and contact buttons are also present as static HTML so they work immediately, even before JavaScript.
+- **Socials:** `socials` lists LinkedIn, GitHub, and email. Links on the primary hero and contact buttons are also present as static HTML so they work immediately, even before JavaScript.
 - **Share image:** replace `og-image.jpg` with a relevant **1200×630 JPEG** and keep `og:image` / `twitter:image` metadata pointing to the actual image.
 
 ## Things still to fill
@@ -64,4 +64,4 @@ Edit `portfolio-config.js`, save, commit and push to `main`. There is no build s
 
 Semantic chapter headings, skip link, visible focus rings, native links/buttons, image alt text, 44px tap targets for interactive controls, responsive layouts, lightweight local image assets and reduced-motion handling. No trackers or external font CDNs. The interactive widgets use `textContent` to avoid injecting user-edited HTML.
 
-Suggested visual QA: open the site at 320px and 390px, check overflow and button tapability, try all chapter controls, check photo placeholder labels, verify the project/Instagram links, and review keyboard/reduced-motion behavior. Lighthouse **95+ is a target, not a measured score** until audited with a browser.
+Suggested visual QA: open the site at 320px and 390px, check overflow and button tapability, try all chapter controls, check photo placeholder labels, verify the project and professional contact links, and review keyboard/reduced-motion behavior. Lighthouse **95+ is a target, not a measured score** until audited with a browser.

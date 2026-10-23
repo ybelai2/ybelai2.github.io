@@ -92,7 +92,7 @@ export default async function NotePage({ params }: Props) {
             </p>
             <a
               className="text-link"
-              href="https://www.instagram.com/yohannes.belai/"
+              href="mailto:yohannesbelai4@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,12 +1,5 @@
 [
   {
-    "id": "instagram",
-    "label": "Instagram",
-    "href": "https://www.instagram.com/yohannes.belai/",
-    "handle": "yohannes.belai",
-    "primary": true
-  },
-  {
     "id": "linkedin",
     "label": "LinkedIn",
     "href": "https://www.linkedin.com/in/yohannesbelai/",

@@ -14,7 +14,6 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     smallPrint: "Ethiopian-American"
   },
   socials: [
-    {id:"instagram",label:"Instagram",href:"https://www.instagram.com/yohannes.belai/"},
     {id:"linkedin",label:"LinkedIn",href:"https://www.linkedin.com/in/yohannesbelai/"},
     {id:"github",label:"GitHub",href:"https://github.com/ybelai2"},
     {id:"email",label:"Email",href:"mailto:yohannesbelai4@gmail.com"}

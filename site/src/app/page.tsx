@@ -382,7 +382,7 @@ export default function Home() {
             </div>
             <a
               className="text-link"
-              href="https://www.instagram.com/yohannes.belai/"
+              href="mailto:yohannesbelai4@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
