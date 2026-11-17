@@ -1,67 +1,59 @@
-# Yohannes Belai — Digital Home
+# Yohannes Belai — software engineering portfolio
 
 **Live:** https://ybelai2.github.io/
 
-A personal portfolio featuring software projects and professional experience, with LinkedIn, GitHub, and email for professional contact. It uses only **HTML, CSS, and vanilla JavaScript**—no framework, bundler, server, or build command.
+A lightweight, static portfolio for a Towson University Computer Science senior (expected graduation **May 2027**), featuring software projects, experience, a résumé, and professional contact information.
 
-## Files that control the live home page
+## Featured engineering work
 
-| File | Purpose |
+The project cards are configured in `portfolio-config.js` and currently prioritize:
+
+1. **Drill** — Java/Spring Boot and React study application with PostgreSQL persistence
+2. **SyllabiXtract** — team-built syllabus extraction and calendar project
+3. **VeriSource** — FastAPI/pgvector RAG prototype
+4. **Fall 2026 OS** — React/TypeScript recurring-calendar planner
+5. **InterviewOS** — private project, clearly labeled without a source link
+
+Links are provided for public repositories and available deployed sites. A private repo is never presented as publicly inspectable.
+
+## How this site works
+
+The **published homepage** is a static HTML, CSS, and vanilla JavaScript site at the repository root. It has **five sections**: Introduction, Now, Projects, Experience, and Contact.
+
+| File | Responsibility |
 | --- | --- |
-| `index.html` | Nine chapters, links, SEO and share metadata, accessible structure |
-| `portfolio-2026.css` | Existing color identity, layouts, motion and scroll snapping |
-| `portfolio-config.js` | Editable projects, now, interests, social links, photos, plans, questions and roles |
-| `portfolio.js` | Safe client-side rendering and interaction for those content lists |
-| `reel-navigation.js` | Generated chapter counter, progress, desktop rail and mobile up/down controls |
-| `assets/images/yohannes-blue-sweatshirt.webp` | Newly supplied casual portrait in a blue sweatshirt; replace it when you like |
-| `og-image.jpg` | 1200×630 share image — replace with a new personal share design when ready |
-| `Yohannes_Belai_Resume_2027_Grad.pdf` | Existing résumé PDF |
+| `index.html` | Five visible sections, navigation, semantic HTML, résumé/contact links, SEO metadata |
+| `portfolio-2026.css` | Layout, responsive styling, color, and motion |
+| `portfolio-config.js` | Profile copy, projects, experience, links, and other content data |
+| `portfolio.js` | Safe DOM rendering of dynamic content and project links |
+| `reel-navigation.js` | Section navigation and progress UI |
+| `Yohannes_Belai_Resume_2027_Grad.pdf` | Downloadable résumé |
 
-The separate legacy `site/` directory contains older Next.js source for archived notes. It is **not used to build the current home page**. The legacy static export script protects the root `index.html`.
+Some configuration entries relate to earlier experiments and are **not rendered on the current five-section homepage**; do not assume every field in the configuration is visible.
 
-## Chapter order
+Legacy files and the `site/` directory are not the entry point for the live homepage.
 
-1. Introduction
-2. Now
-3. Beyond the code
-4. Photos
-5. Let's do something
-6. I build things
-7. Experience
-8. Principles
-9. Don't be a stranger
+## Edit and preview
 
-Every chapter is a real `<section>` with its own `id` and `data-reel-title`. `reel-navigation.js` discovers chapters directly from those attributes. On touch devices, scrolling uses native proximity snap; it does not intercept gestures or trap visitors in long content. A progress bar, chapter counter, mobile up/down buttons and a desktop chapter rail are provided. Reduced-motion settings disable snapping and animation.
+1. Update `portfolio-config.js` for project descriptions, experience, and links.
+2. Update `index.html` for static copy, metadata, or page structure.
+3. Preview with a static server, for example:
 
-## Make a change
+   ```bash
+   python3 -m http.server 8000
+   ```
 
-Edit `portfolio-config.js`, save, commit and push to `main`. There is no build step.
+4. Open `http://localhost:8000/` and confirm all internal and external links.
+5. Commit and push to the site's configured GitHub Pages branch.
 
-- **Portrait:** `profile.portrait` and `profile.portraitAlt` should point to a real image you own. Current portrait is already supplied and is **not** a placeholder.
-- **Now:** update `now` entries. Change the two `placeholder:true` entries for *Currently reading* and *Currently watching* after adding the actual titles.
-- **Interests:** change the `interests` array.
-- **Conversation questions:** edit `starters`; each topic has one unique question. Use real details, no fabricated anecdotes.
-- **Photo gallery:** upload your own photos under `/photos/`; for each slot, provide a valid `src`, descriptive `alt`, accurate caption and change `placeholder:true` to `placeholder:false`. Unfilled slots display a clearly marked tile, not stock imagery.
-- **Low-pressure plans:** edit `plans`.
-- **Projects:** edit `projects`. InterviewOS stays private. SyllabiXtract source/demo links stay unset until verified. Campus Events API and GitHub Developer Insights Dashboard are intentionally omitted.
-- **Experience:** two short entries. The résumé carries the full descriptions.
-- **Socials:** `socials` lists LinkedIn, GitHub, and email. Links on the primary hero and contact buttons are also present as static HTML so they work immediately, even before JavaScript.
-- **Share image:** replace `og-image.jpg` with a relevant **1200×630 JPEG** and keep `og:image` / `twitter:image` metadata pointing to the actual image.
+There is no framework build, database, or production server.
 
-## Things still to fill
+## Quality checks before sending to recruiters
 
-- Gallery photo slots: Basketball, Soccer, Reading, Friends, DMV, Faith & Culture, Projects, Everyday
-- Each real photo's caption and alt text
-- Currently reading
-- Currently watching
-- Optional soccer team name, **only if Yohannes supplies one** (none is displayed currently)
-- SyllabiXtract GitHub/demo URLs if confirmed
-- InterviewOS links only if it later becomes public
-- Optional replacement portrait (the current one is real and supplied)
-- A new personal-themed Open Graph JPEG to replace the older field-notes image
+- Confirm the portfolio, repository, demo, LinkedIn, email, and résumé links work.
+- Confirm that project descriptions accurately reflect currently shipped behavior.
+- Check at mobile widths, keyboard navigation, and reduced-motion settings.
+- Keep the downloadable résumé up to date.
+- Check the live deployment after each change; a successful Git commit is not proof that the page was rendered or its external services work.
 
-## Accessibility and performance
-
-Semantic chapter headings, skip link, visible focus rings, native links/buttons, image alt text, 44px tap targets for interactive controls, responsive layouts, lightweight local image assets and reduced-motion handling. No trackers or external font CDNs. The interactive widgets use `textContent` to avoid injecting user-edited HTML.
-
-Suggested visual QA: open the site at 320px and 390px, check overflow and button tapability, try all chapter controls, check photo placeholder labels, verify the project and professional contact links, and review keyboard/reduced-motion behavior. Lighthouse **95+ is a target, not a measured score** until audited with a browser.
+This portfolio favors clear evidence and honest scope statements over inflated performance metrics or nonfunctional badges.
