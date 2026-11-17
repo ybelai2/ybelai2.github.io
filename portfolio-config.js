@@ -10,7 +10,7 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     graduation: "May 2027",
     portrait: "/assets/images/yohannes-blue-sweatshirt.webp",
     portraitAlt: "Yohannes Belai in a blue sweatshirt",
-    introduction: "I'm a Computer Science senior at Towson, and I build study and interview-prep tools.",
+    introduction: "I'm a Computer Science senior at Towson University building full-stack tools with Java, Spring Boot, React, and Python.",
     smallPrint: "Ethiopian-American"
   },
   socials: [
@@ -20,10 +20,8 @@ window.PORTFOLIO_CONFIG = Object.freeze({
   ],
   resume: "/Yohannes_Belai_Resume_2027_Grad.pdf",
   now: [
-    {date:"Oct 2026",label:"Coursework",text:"Finishing my Computer Science degree at Towson. Expected graduation: May 2027."},
-    {date:"Oct 2026",label:"Projects",text:"Drill turns class PowerPoints into flashcards and quizzes. InterviewOS uses a résumé for interview prep."},
-    {date:"Your update",label:"Currently reading",text:"Not added yet. What are you reading?",placeholder:true},
-    {date:"Your update",label:"Currently watching",text:"Not added yet. What are you watching?",placeholder:true}
+    {date:"Nov 2026",label:"Education",text:"Computer Science senior at Towson University; expected graduation May 2027."},
+    {date:"Nov 2026",label:"Engineering",text:"Building and documenting full-stack and backend projects focused on study tools, data access, and applied AI."}
   ],
   interests: [
     {icon:"",label:"Maryland / DMV"},
@@ -78,35 +76,54 @@ window.PORTFOLIO_CONFIG = Object.freeze({
   ],
   projects: [
     {
-      name:"InterviewOS",
-      eyebrow:"Interview preparation",
-      problem:"Preparing for interviews using a résumé.",
-      approach:"Organizes interview preparation around résumé details.",
-      // Stack retained from the existing portfolio; edit as your project changes.
-      technologies:["React","PostgreSQL","Supabase"],
-      github:null,
-      live:null,
-      note:"Private repository"
-    },
-    {
       name:"Drill",
-      eyebrow:"Study tool",
-      problem:"Reviewing material spread across PowerPoint slides.",
-      approach:"Turns class PowerPoints into flashcards and quizzes.",
-      technologies:["Java","Spring Boot","React"],
+      eyebrow:"Full-stack study application",
+      problem:"Course materials and practice questions are scattered across slide decks.",
+      approach:"Parses PowerPoint slides into generated study decks and stores private courses, classes, and flashcards behind authenticated APIs.",
+      technologies:["Java 21","Spring Boot","PostgreSQL","React"],
       github:"https://github.com/ybelai2/drillapi",
-      live:"https://study-cs.vercel.app/",
-      note:null
+      live:"https://os439-frontend.vercel.app/",
+      note:"Backend and frontend are documented in separate repositories."
     },
     {
       name:"SyllabiXtract",
-      eyebrow:"Team class project",
-      problem:"Deadlines are spread across multiple syllabi.",
-      approach:"Pulls deadlines from several class syllabi into one calendar.",
-      technologies:["Spring Boot","React","PostgreSQL"],
+      eyebrow:"Team-built full-stack project",
+      problem:"Deadlines and exams are spread across several course syllabi.",
+      approach:"Extracts structured course events from uploaded syllabi and organizes them in a user-specific calendar.",
+      technologies:["React","Spring Boot","PostgreSQL","Auth0"],
+      github:"https://github.com/ybelai2/SyllabiXtract",
+      live:"https://syllabi-xtract.vercel.app/",
+      note:"Collaborative course project."
+    },
+    {
+      name:"VeriSource",
+      eyebrow:"RAG engineering prototype",
+      problem:"Language models can produce unsupported answers to document questions.",
+      approach:"Retrieves relevant policy text using pgvector, then prompts a model to answer with named sources and explicit uncertainty.",
+      technologies:["Python","FastAPI","PostgreSQL","pgvector"],
+      github:"https://github.com/ybelai2/verisource-policy-rag",
+      live:null,
+      note:"Prototype, not a production-secure service."
+    },
+    {
+      name:"Fall 2026 OS",
+      eyebrow:"Personal productivity app",
+      problem:"Classes, recurring time blocks, and syllabus dates need one daily view.",
+      approach:"Combines course schedules and dated obligations with a recurrence engine, calendar overrides, and browser persistence.",
+      technologies:["TypeScript","React","date-fns"],
+      github:"https://github.com/ybelai2/fall-2026-os",
+      live:"https://fall-2026-os.vercel.app/",
+      note:"Single-user, browser-local storage."
+    },
+    {
+      name:"InterviewOS",
+      eyebrow:"Private full-stack project",
+      problem:"Interview preparation is hard to organize around one's specific experience.",
+      approach:"Supports resume intake, learning tracks, practice sessions, and saved progress.",
+      technologies:["React","Supabase","PostgreSQL"],
       github:null,
       live:null,
-      note:"No public link added yet"
+      note:"Repository is private; no source link available."
     }
   ],
   experience: [
@@ -114,8 +131,8 @@ window.PORTFOLIO_CONFIG = Object.freeze({
     {role:"Volunteer Software Development Instructor & Technical Mentor",organization:"HBKY EOTC",dates:"Jun - Jul 2026",location:"Mentored 20+ students building mobile apps with external AI APIs"}
   ],
   principles: [
-    "Faith: note to write in my own words.",
-    "Habits: note to write in my own words.",
-    "Building software: note to write in my own words."
+    "Build tools that solve real problems, not just impressive demos.",
+    "Be clear about what works, what is experimental, and what still needs testing.",
+    "Learn through repetition, deliberate practice, and honest feedback."
   ]
 });
